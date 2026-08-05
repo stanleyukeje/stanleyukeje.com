@@ -50,31 +50,31 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-12 md:py-20 bg-[#05070B] text-white">
+    <div className="py-12 md:py-20 bg-[#0B1220] text-white">
       <Container size="xl" className="flex flex-col gap-12 max-w-5xl">
         <Section className="flex flex-col gap-4 max-w-2xl">
           <Badge variant="primary" className="w-fit">
             Get In Touch
           </Badge>
           <h1 className="text-3xl font-extrabold tracking-tight sm:text-5xl">
-            Let’s discuss your next engineering project.
+            Let’s discuss your software engineering goals.
           </h1>
-          <p className="text-lg text-[#9CA3AF] leading-relaxed">
-            Have a question about software architecture, systems engineering, or technical consultation? Drop a message below.
+          <p className="text-lg text-[#CBD5E1] leading-relaxed">
+            Available for Remote, Contract, Freelance and Full-Time Software Engineering opportunities.
           </p>
         </Section>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <Card className="flex flex-col gap-6 lg:col-span-1 h-fit">
-            <h2 className="text-xl font-bold text-white border-b border-[#1F2937] pb-3">
+            <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-3">
               Direct Contact & Networks
             </h2>
-            <div className="flex flex-col gap-4 text-sm text-[#9CA3AF]">
+            <div className="flex flex-col gap-4 text-sm text-[#CBD5E1]">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#2563EB]" />
-                <Link href="mailto:stan@stanleyukeje.com" className="hover:text-white transition-colors">
+                <a href="mailto:stan@stanleyukeje.com" className="hover:text-white transition-colors">
                   stan@stanleyukeje.com
-                </Link>
+                </a>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-[#2563EB]" />
@@ -82,7 +82,7 @@ export default function ContactPage() {
               </div>
             </div>
 
-            <div className="flex flex-col gap-3 pt-4 border-t border-[#1F2937]">
+            <div className="flex flex-col gap-3 pt-4 border-t border-[#334155]">
               <h3 className="text-xs font-semibold text-white uppercase tracking-wider">
                 Official Channels
               </h3>
@@ -93,7 +93,7 @@ export default function ContactPage() {
                     href={s.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-xs text-[#9CA3AF] hover:text-[#2563EB] transition-colors flex items-center justify-between"
+                    className="text-xs text-[#CBD5E1] hover:text-[#38BDF8] transition-colors flex items-center justify-between"
                   >
                     <span>{s.platform}</span>
                     <ExternalLink className="h-3 w-3" />
@@ -108,8 +108,8 @@ export default function ContactPage() {
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                 <CheckCircle2 className="h-12 w-12 text-[#22C55E]" />
                 <h2 className="text-2xl font-bold text-white">Message Dispatched</h2>
-                <p className="text-sm text-[#9CA3AF] max-w-md">
-                  Thank you for reaching out. Your message has been routed via Resend API and will be reviewed shortly.
+                <p className="text-sm text-[#CBD5E1] max-w-md">
+                  Thank you for reaching out. Your message has been routed and will be reviewed shortly.
                 </p>
                 <Button variant="outline" onClick={() => setStatus('idle')} className="mt-4">
                   Send Another Message
@@ -152,7 +152,7 @@ export default function ContactPage() {
                   </label>
                   <Input
                     id="subject"
-                    placeholder="Engineering Consultation / Architecture Review"
+                    placeholder="Engineering Role / Project Consultation"
                     value={formData.subject}
                     onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
                   />
@@ -166,7 +166,7 @@ export default function ContactPage() {
                     id="message"
                     required
                     rows={5}
-                    placeholder="Describe your project scope or engineering query..."
+                    placeholder="Describe your software project scope or role opportunity..."
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                   />

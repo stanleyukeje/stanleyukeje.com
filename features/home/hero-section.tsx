@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Terminal, Mail } from 'lucide-react';
+import { ArrowRight, Terminal, Download } from 'lucide-react';
 import { siteConfig } from '@/config/site';
 
 export function HeroSection() {
@@ -12,31 +12,32 @@ export function HeroSection() {
           <div className="lg:col-span-7 flex flex-col items-start text-left gap-6">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#2563EB]/40 bg-[#111827] text-xs font-mono text-[#38BDF8]">
               <Terminal className="h-3.5 w-3.5 text-[#2563EB]" />
-              <span>Full-Stack & Product Engineer</span>
+              <span>Full Stack Software Engineer | Product Engineer</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-              Architecting Resilient Production Web Systems.
+              Building Production Web Applications from Idea to Deployment.
             </h1>
 
             <p className="text-base sm:text-lg text-[#CBD5E1] max-w-2xl leading-[1.7]">
-              I am Stanley Ukeje, a Senior Product Engineer specializing in Next.js 16, TypeScript, software quality assurance, and zero-trust Supabase architectures.
+              Specializing in Next.js, React, TypeScript, PostgreSQL, Supabase and modern cloud infrastructure. Available for Remote, Contract and Full-Time Software Engineering opportunities.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="/projects"
+              <a
+                href="/resume/Stanley_Ukeje_CV.pdf"
+                download="Stanley_Ukeje_CV.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#2563EB] text-white font-bold text-sm hover:bg-[#3B82F6] transition-colors shadow-md shadow-blue-900/30"
               >
-                <span>View Engineering Projects</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
+                <Download className="h-4 w-4" />
+                <span>Download CV</span>
+              </a>
               <Link
-                href="/contact"
+                href="/projects"
                 className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-[#334155] bg-[#111827] text-white font-semibold text-sm hover:bg-[#1E293B] hover:border-[#475569] transition-colors"
               >
-                <Mail className="h-4 w-4 text-[#38BDF8]" />
-                <span>Contact for Opportunities</span>
+                <span>View Projects</span>
+                <ArrowRight className="h-4 w-4" />
               </Link>
             </div>
           </div>
