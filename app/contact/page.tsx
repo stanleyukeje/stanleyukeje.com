@@ -118,7 +118,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-[#2563EB]" />
-                <span>Abuja, Nigeria (Remote, Worldwide)</span>
+                <span>Sharjah, United Arab Emirates (Remote, Worldwide)</span>
               </div>
             </div>
 

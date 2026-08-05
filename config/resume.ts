@@ -59,7 +59,7 @@ export const canonicalResumeData: CanonicalResumeData = {
   title: 'FULL STACK SOFTWARE ENGINEER | PRODUCT ENGINEER',
   pdfPath: '/resume/Stanley_Ukeje_CV.pdf',
   contact: {
-    location: 'Abuja, Nigeria',
+    location: 'Sharjah, United Arab Emirates',
     phone: '+2347066621779',
     email: 'stan@stanleyukeje.com',
     website: 'https://stanleyukeje.com',

@@ -12,7 +12,7 @@ export const siteConfig: SiteMetadata = {
     name: 'Stanley Ukeje',
     role: 'Full Stack Software Engineer | Product Engineer',
     bio: 'Full Stack Software Engineer building production web applications from idea to deployment with Next.js, React, TypeScript, PostgreSQL, Supabase and modern cloud infrastructure.',
-    location: 'Abuja, Nigeria (Remote, Worldwide)',
+    location: 'Sharjah, United Arab Emirates (Remote, Worldwide)',
   },
 };
 
