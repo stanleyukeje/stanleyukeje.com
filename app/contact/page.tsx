@@ -72,7 +72,11 @@ export default function ContactPage() {
         generateNewMathQuestion();
       } else {
         setStatus('error');
-        setErrorMessage(data.error || 'Failed to submit contact message.');
+        if (res.status === 429) {
+          setErrorMessage("You're sending messages a little too quickly. Please wait a while before trying again.");
+        } else {
+          setErrorMessage(data.error || 'Failed to submit contact message.');
+        }
       }
     } catch {
       setStatus('error');

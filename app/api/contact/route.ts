@@ -1,9 +1,24 @@
 import { NextResponse } from 'next/server';
 import { sendContactEmail } from '@/lib/resend/send-contact-email';
 import { sendAutoResponseEmail } from '@/lib/resend/send-auto-response';
+import { checkRateLimit } from '@/lib/rate-limit';
 
 export async function POST(request: Request) {
   try {
+    // 1. IP Rate Limiting Check (Max 5 submissions per IP per hour)
+    const forwardedFor = request.headers.get('x-forwarded-for');
+    const realIp = request.headers.get('x-real-ip');
+    const clientIp = forwardedFor ? forwardedFor.split(',')[0].trim() : realIp || '127.0.0.1';
+
+    const rateCheck = checkRateLimit(clientIp);
+    if (!rateCheck.success) {
+      console.warn(`Rate limit exceeded for IP ${clientIp}. Total requests in window: ${rateCheck.count}`);
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      );
+    }
+
     const body = await request.json();
     const { name, email, subject, message, num1, num2, mathAnswer } = body;
 
@@ -14,7 +29,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Server-side Math Human Verification
+    // 2. Server-side Math Human Verification Check
     const parsedN1 = parseInt(num1, 10);
     const parsedN2 = parseInt(num2, 10);
     const parsedAns = parseInt(mathAnswer, 10);
@@ -31,7 +46,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 1. Notify Stanley (existing behavior)
+    // 3. Notify Stanley (existing behavior)
     const result = await sendContactEmail({
       name,
       email,
@@ -46,7 +61,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // 2. Automatically send confirmation email to sender if notification succeeded
+    // 4. Automatically send confirmation email to sender if notification succeeded
     try {
       await sendAutoResponseEmail({
         name,
@@ -56,7 +71,6 @@ export async function POST(request: Request) {
       });
     } catch (autoErr) {
       console.error('Non-blocking error dispatching auto-response email:', autoErr);
-      // Non-blocking: Do not fail visitor request if auto-response fails
     }
 
     return NextResponse.json({
