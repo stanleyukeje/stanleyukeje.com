@@ -18,7 +18,7 @@ export function MainNav() {
             key={item.href}
             href={item.href}
             className={clsx(
-              'text-sm font-semibold transition-colors duration-150 py-1 border-b-2',
+              'text-sm font-semibold transition-colors duration-150 py-1 border-b-2 focus:outline-none focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2 focus:ring-offset-[#0B1220] rounded-sm',
               isActive
                 ? 'text-white border-[#2563EB]'
                 : 'text-[#CBD5E1] border-transparent hover:text-white hover:border-[#38BDF8]'
