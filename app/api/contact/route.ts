@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { sendContactEmail } from '@/lib/resend/send-contact-email';
+import { sendAutoResponseEmail } from '@/lib/resend/send-auto-response';
 
 export async function POST(request: Request) {
   try {
@@ -13,6 +14,7 @@ export async function POST(request: Request) {
       );
     }
 
+    // 1. Notify Stanley (existing behavior)
     const result = await sendContactEmail({
       name,
       email,
@@ -27,9 +29,23 @@ export async function POST(request: Request) {
       );
     }
 
+    // 2. Automatically send confirmation email to sender if notification succeeded
+    try {
+      await sendAutoResponseEmail({
+        name,
+        email,
+        subject,
+        message,
+      });
+    } catch (autoErr) {
+      console.error('Non-blocking error dispatching auto-response email:', autoErr);
+      // Non-blocking: Do not fail the visitor request if auto-response fails
+    }
+
     return NextResponse.json({
       success: true,
-      message: 'Contact submission received successfully.',
+      message:
+        "Thanks! Your message has been sent successfully. I've also sent a confirmation email to your inbox. I'll get back to you as soon as possible.",
     });
   } catch (error) {
     console.error('Contact API Route Error:', error);

@@ -108,8 +108,8 @@ export default function ContactPage() {
               <div className="flex flex-col items-center justify-center gap-4 py-12 text-center">
                 <CheckCircle2 className="h-12 w-12 text-[#22C55E]" />
                 <h2 className="text-2xl font-bold text-white">Message Dispatched</h2>
-                <p className="text-sm text-[#CBD5E1] max-w-md">
-                  Thank you for reaching out. Your message has been routed and will be reviewed shortly.
+                <p className="text-sm text-[#CBD5E1] max-w-md leading-[1.7]">
+                  Thanks! Your message has been sent successfully. I’ve also sent a confirmation email to your inbox. I’ll get back to you as soon as possible.
                 </p>
                 <Button variant="outline" onClick={() => setStatus('idle')} className="mt-4">
                   Send Another Message
