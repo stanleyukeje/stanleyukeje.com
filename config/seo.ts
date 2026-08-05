@@ -20,11 +20,11 @@ export const defaultSEO: Metadata = {
     'System Architecture',
   ],
   icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/icon.png',
+    icon: '/icon.webp',
+    shortcut: '/icon.webp',
+    apple: '/icon.webp',
   },
-  manifest: '/manifest.json',
+  manifest: '/manifest.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -34,9 +34,9 @@ export const defaultSEO: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: '/icon.png',
-        width: 1200,
-        height: 1200,
+        url: '/icon.webp',
+        width: 512,
+        height: 512,
         alt: siteConfig.name,
       },
     ],
@@ -45,7 +45,7 @@ export const defaultSEO: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ['/icon.png'],
+    images: ['/icon.webp'],
     creator: '@stanleyukeje',
   },
   robots: {

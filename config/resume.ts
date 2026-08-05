@@ -41,8 +41,8 @@ export const resumeData: ResumeData = {
   contact: {
     email: 'stanley@stanleyukeje.com',
     github: 'https://github.com/stanleyukeje',
-    linkedin: 'https://linkedin.com/in/stanleyukeje',
-    location: 'Lagos, Nigeria',
+    linkedin: 'https://www.linkedin.com/in/stanleyukeje/',
+    location: 'Abuja, Nigeria (Remote, Worldwide)',
     website: 'https://stanleyukeje.com',
   },
   skillCategories: [

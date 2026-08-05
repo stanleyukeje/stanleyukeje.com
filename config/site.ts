@@ -1,16 +1,21 @@
-import { SiteMetadata } from '@/types';
-
-export const siteConfig: SiteMetadata = {
+export const siteConfig = {
   name: 'Stanley Ukeje',
-  title: 'Stanley Ukeje — Senior Product Engineer',
+  title: 'Stanley Ukeje — Product Engineer & Systems Architect',
   description:
-    'Official engineering platform & portfolio of Stanley Ukeje. Specializing in high-performance web applications, scalable system design, and AI integrations.',
+    'Official portfolio and engineering platform of Stanley Ukeje — Product Engineer specializing in full-stack development, software quality assurance, and production-ready web applications.',
   url: process.env.NEXT_PUBLIC_SITE_URL || 'https://stanleyukeje.com',
-  ogImage: '/icon.png',
+  ogImage: 'https://stanleyukeje.com/icon.webp',
+  links: {
+    github: 'https://github.com/stanleyukeje',
+    linkedin: 'https://www.linkedin.com/in/stanleyukeje/',
+    twitter: 'https://twitter.com/stanleyukeje',
+    email: 'mailto:stanley@stanleyukeje.com',
+  },
   author: {
     name: 'Stanley Ukeje',
-    role: 'Senior Product Engineer',
-    bio: 'Architecting scalable platforms, performant web applications, and resilient cloud solutions.',
-    location: 'Global / Remote',
+    role: 'Product Engineer',
+    bio: 'Product Engineer specializing in resilient systems architecture, software quality assurance, and high-performance web applications.',
+    avatar: '/images/profile/stanley.png',
+    location: 'Abuja, Nigeria (Remote, Worldwide)',
   },
 };

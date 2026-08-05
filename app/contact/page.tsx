@@ -74,7 +74,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-[#2563EB]" />
-                <span>Lagos, Nigeria (Remote Worldwide)</span>
+                <span>Abuja, Nigeria (Remote, Worldwide)</span>
               </div>
             </div>
           </Card>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                   </div>
 
                   <div className="flex flex-col gap-1.5">
-                    <label htmlFor="email" className="text-xs font-semibold text-[#FFFFFF]">
+                    <label htmlFor="email" className="text-xs font-semibold text-white">
                       Email Address *
                     </label>
                     <Input
@@ -123,7 +123,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="subject" className="text-xs font-semibold text-[#FFFFFF]">
+                  <label htmlFor="subject" className="text-xs font-semibold text-white">
                     Subject
                   </label>
                   <Input
@@ -135,7 +135,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex flex-col gap-1.5">
-                  <label htmlFor="message" className="text-xs font-semibold text-[#FFFFFF]">
+                  <label htmlFor="message" className="text-xs font-semibold text-white">
                     Message *
                   </label>
                   <Textarea
