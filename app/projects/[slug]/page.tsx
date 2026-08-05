@@ -1,19 +1,13 @@
-import { Metadata } from 'next';
+import React from 'react';
 import { notFound } from 'next/navigation';
-import { Section } from '@/components/layout/section';
-import { ProjectHero } from '@/components/projects/project-hero';
-import { ProjectOverview } from '@/components/projects/project-overview';
-import { ArchitectureSection } from '@/components/projects/architecture-section';
-import { TechnologyGrid } from '@/components/projects/technology-grid';
-import { ChallengeList } from '@/components/projects/challenge-list';
-import { LessonSection } from '@/components/projects/lesson-section';
-import { Gallery } from '@/components/projects/gallery';
-import { RelatedProjects } from '@/components/projects/related-projects';
-import { ProjectRepositoryCard } from '@/components/projects/repository-card';
+import Link from 'next/link';
+import { Metadata } from 'next';
 import { projectsConfig } from '@/config/projects';
-import { constructSEO } from '@/lib/seo';
+import { ProjectHero } from '@/components/projects/project-hero';
+import { ArchitectureSection } from '@/components/projects/architecture-section';
+import { LessonSection } from '@/components/projects/lesson-section';
 
-interface ProjectPageProps {
+interface CaseStudyPageProps {
   params: Promise<{
     slug: string;
   }>;
@@ -25,25 +19,18 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata({ params }: ProjectPageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: CaseStudyPageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = projectsConfig.find((p) => p.slug === slug);
+  if (!project) return {};
 
-  if (!project) {
-    return constructSEO({
-      title: 'Project Not Found',
-      description: 'The requested engineering case study could not be found.',
-    });
-  }
-
-  return constructSEO({
-    title: `${project.title} — Engineering Case Study`,
-    description: project.seo.description || project.description,
-    path: `/projects/${project.slug}`,
-  });
+  return {
+    title: `${project.name} Case Study`,
+    description: project.description,
+  };
 }
 
-export default async function ProjectPage({ params }: ProjectPageProps) {
+export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
   const { slug } = await params;
   const project = projectsConfig.find((p) => p.slug === slug);
 
@@ -52,16 +39,62 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
   }
 
   return (
-    <Section containerSize="xl" className="py-12 md:py-20">
-      <ProjectHero project={project} />
-      <ProjectOverview project={project} />
-      <ArchitectureSection project={project} />
-      <TechnologyGrid project={project} />
-      <ProjectRepositoryCard repoName={project.slug} />
-      <ChallengeList project={project} />
-      <LessonSection project={project} />
-      <Gallery project={project} />
-      <RelatedProjects currentSlug={project.slug} />
-    </Section>
+    <div className="py-12 md:py-20 bg-[#0B1220] text-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+        <Link
+          href="/projects"
+          className="text-xs font-semibold text-[#CBD5E1] hover:text-white transition-colors flex items-center gap-1.5 w-fit"
+        >
+          ← Back to Projects
+        </Link>
+
+        <ProjectHero project={project} />
+
+        <div className="flex flex-col gap-10">
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-2">
+              1. Executive Summary
+            </h2>
+            <p className="text-[#CBD5E1] leading-[1.7] text-sm sm:text-base">
+              {project.overview || project.longDescription}
+            </p>
+          </section>
+
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-2">
+              2. Problem Statement
+            </h2>
+            <p className="text-[#CBD5E1] leading-[1.7] text-sm sm:text-base">
+              {project.problem}
+            </p>
+          </section>
+
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-2">
+              3. Solution Engineering
+            </h2>
+            <p className="text-[#CBD5E1] leading-[1.7] text-sm sm:text-base">
+              {project.solution}
+            </p>
+          </section>
+
+          <section className="flex flex-col gap-3">
+            <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-2">
+              4. System Architecture
+            </h2>
+            <ArchitectureSection />
+          </section>
+
+          {project.lessons && project.lessons.length > 0 && (
+            <section className="flex flex-col gap-3">
+              <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-2">
+                5. Engineering Trade-offs & Lessons Learned
+              </h2>
+              <LessonSection lessons={project.lessons} />
+            </section>
+          )}
+        </div>
+      </div>
+    </div>
   );
 }

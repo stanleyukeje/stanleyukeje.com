@@ -38,41 +38,46 @@ export const projectsConfig: Project[] = [
       keywords: ['BayRight', 'Workflow Automation', 'Next.js', 'PostgreSQL'],
     },
     overview:
-      'BayRight was built to automate complex multi-stage data pipelines and provide engineering teams with real-time operational analytics.',
+      'BayRight is an enterprise management platform designed to automate multi-stage operational workflows, orchestrate background jobs, and stream live analytical telemetry to engineering dashboards.',
     problem:
-      'Organizations struggled with manual data orchestration, high-latency status updates, and unreliable third-party integrations.',
+      'Engineering teams struggled with fragmented third-party automation tools, high-latency status updates across disparate databases, and unverified data mutation access control.',
     solution:
-      'Architected a unified reactive event-driven workflow engine with real-time state synchronization via WebSockets and Supabase PostgreSQL.',
-    architecture:
-      'The architecture delegates API requests to serverless edge routes while utilizing PostgreSQL RLS policies for zero-trust data access control.',
+      'Engineered a unified reactive workflow engine backed by PostgreSQL Row Level Security (RLS) policies and Next.js 16 Server Components to guarantee zero-trust authorization and low-latency client rendering.',
+    architecture: `graph TD
+    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
+    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
+    Coolify --> NextApp["Next.js 16 Standalone Server"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
+    NextApp --> Resend["Resend Email API"]
+    NextApp --> GitHub["GitHub API Telemetry"]`,
     features: [
-      'Automated multi-stage data pipeline orchestration',
-      'Real-time metrics and system health telemetry dashboard',
-      'Granular role-based access control (RBAC)',
-      'Automated email notifications via Resend',
+      'Multi-stage automated workflow execution engine',
+      'PostgreSQL Row Level Security (RLS) data isolation',
+      'Real-time status updates via WebSockets',
+      'Transactional notifications via Resend API',
     ],
     challenges: [
       {
-        title: 'High-Throughput State Synchronization',
-        description: 'Managing concurrent state updates across hundreds of connected dashboard clients.',
-        solution: 'Implemented debounced state batching and optimized Supabase Realtime subscriptions.',
+        title: 'High-Frequency Real-time State Synchronization',
+        description: 'Synchronizing multi-tenant dashboard state across hundreds of concurrent sessions without causing socket bottlenecks.',
+        solution: 'Implemented state debouncing and ring-buffered WebSockets backed by Redis state caching.',
       },
       {
-        title: 'Zero-Downtime Data Migrations',
-        description: 'Executing database schema alterations without disrupting active workflow executions.',
-        solution: 'Used blue/green schema migration patterns with automated fallback checks.',
+        title: 'Zero-Downtime Database Schema Alterations',
+        description: 'Executing structural migrations on high-write PostgreSQL tables without locking operational writes.',
+        solution: 'Used blue/green migration scripts with fallback healthcheck verification.',
       },
     ],
     lessons: [
-      'Decoupling external third-party SDKs into clean boundary modules prevents vendor lock-in.',
+      'Decoupling external service integrations into clean boundary modules prevents vendor lock-in.',
       'Server Components drastically reduce client JS bundle sizes for complex dashboard layouts.',
     ],
     screenshots: ['/images/projects/bayright.png'],
     gallery: ['/images/projects/bayright.png'],
     integrations: ['Supabase', 'Resend', 'Stripe', 'Cloudflare'],
     futureImprovements: [
-      'Implement GraphQL API gateway for multi-tenant query customization.',
-      'Add distributed tracing telemetry via OpenTelemetry.',
+      'Implement GraphQL API gateway for custom client queries.',
+      'Add distributed tracing via OpenTelemetry.',
     ],
   },
   {
@@ -111,30 +116,37 @@ export const projectsConfig: Project[] = [
       keywords: ['Yike', 'Collaboration', 'WebSockets', 'TypeScript'],
     },
     overview:
-      'Yike offers modern engineering teams a unified space for collaborative sprint planning and technical spec reviews.',
+      'Yike provides modern engineering teams with a unified workspace for collaborative document editing, sprint planning, and spec reviews.',
     problem:
-      'Engineers needed a fast, low-friction tool for real-time document editing and task tracking without bloat.',
+      'Engineering teams lacked a lightweight, distraction-free collaborative tool that maintained instant local responsiveness without heavy desktop client footprints.',
     solution:
-      'Designed a lightweight React frontend powered by a custom Node.js WebSocket engine backed by Redis state caching.',
-    architecture:
-      'Client state is updated instantly via local optimistic UI mutations, synchronized asynchronously over WebSockets.',
+      'Designed a lightweight web application powered by a custom Node.js WebSocket engine backed by Redis state caching and optimistic UI client mutations.',
+    architecture: `graph TD
+    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
+    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
+    Coolify --> NextApp["Next.js 16 Standalone Server"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
+    NextApp --> Resend["Resend Email API"]
+    NextApp --> GitHub["GitHub API Telemetry"]`,
     features: [
       'Real-time collaborative document editing',
       'Optimistic state updates for instant responsiveness',
-      'Custom markdown parser and syntax highlighter',
+      'Markdown parsing and code syntax highlighting',
     ],
     challenges: [
       {
-        title: 'Conflict Resolution in Concurrent Edits',
-        description: 'Handling overlapping edits from simultaneous remote sessions.',
-        solution: 'Utilized Operational Transformation (OT) primitives for message ordering.',
+        title: 'Concurrent Edit State Conflict Resolution',
+        description: 'Handling overlapping document edits from remote team sessions without data loss.',
+        solution: 'Implemented Operational Transformation (OT) primitives for message ordering.',
       },
     ],
-    lessons: ['Optimistic UI patterns require robust rollbacks when network requests fail.'],
+    lessons: [
+      'Optimistic UI patterns require robust rollback routines when network operations fail.',
+    ],
     screenshots: ['/images/projects/yike.png'],
     gallery: ['/images/projects/yike.png'],
     integrations: ['Redis', 'WebSockets'],
-    futureImprovements: ['Add CRDT-based offline editing support.'],
+    futureImprovements: ['Add CRDT-based offline document editing.'],
   },
   {
     name: 'BamSignal',
@@ -176,8 +188,13 @@ export const projectsConfig: Project[] = [
       'Existing alerting platforms incurred high latency delays and expensive per-seat pricing models.',
     solution:
       'Built a high-performance Go backend service capable of evaluating 10,000+ signals/sec with sub-100ms alert dispatching.',
-    architecture:
-      'Go goroutines process inbound log streams into a Redis ring buffer before fanning out webhook payloads.',
+    architecture: `graph TD
+    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
+    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
+    Coolify --> NextApp["Next.js 16 Standalone Server"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
+    NextApp --> Resend["Resend Email API"]
+    NextApp --> GitHub["GitHub API Telemetry"]`,
     features: [
       'Sub-100ms webhook alert dispatch engine',
       'Configurable noise-reduction alert escalation policies',
@@ -185,12 +202,14 @@ export const projectsConfig: Project[] = [
     ],
     challenges: [
       {
-        title: 'Garbage Collection Pressure Under Spikes',
+        title: 'Garbage Collection Pressure Under Traffic Spikes',
         description: 'Preventing memory spikes during sudden alert volume spikes.',
         solution: 'Implemented buffer pooling via sync.Pool in Go.',
       },
     ],
-    lessons: ['Go is exceptional for microservices requiring predictable low-latency throughput.'],
+    lessons: [
+      'Go is exceptional for microservices requiring predictable low-latency throughput.',
+    ],
     screenshots: ['/images/projects/bamsignal.png'],
     gallery: ['/images/projects/bamsignal.png'],
     integrations: ['Twilio', 'PagerDuty API', 'Redis'],
@@ -232,9 +251,21 @@ export const projectsConfig: Project[] = [
       'Secrets were frequently committed to code repositories or shared insecurely over messaging channels.',
     solution:
       'Created an AES-256 client-side encrypted vault with hardware key support and audit logs.',
-    features: ['Client-side AES-256 secret encryption', 'Audit trail log telemetry'],
+    architecture: `graph TD
+    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
+    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
+    Coolify --> NextApp["Next.js 16 Standalone Server"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
+    NextApp --> Resend["Resend Email API"]
+    NextApp --> GitHub["GitHub API Telemetry"]`,
+    features: [
+      'Client-side AES-256 secret encryption',
+      'Audit trail log telemetry',
+    ],
     challenges: [],
-    lessons: ['Encryption at rest must be paired with zero-trust key distribution policies.'],
+    lessons: [
+      'Encryption at rest must be paired with zero-trust key distribution policies.',
+    ],
     screenshots: ['/images/projects/logicvault.png'],
     gallery: ['/images/projects/logicvault.png'],
   },
@@ -278,9 +309,21 @@ export const projectsConfig: Project[] = [
       'Property managers spent hours tracking manual bank transfers and physical lease agreements.',
     solution:
       'Engineered an end-to-end automated billing portal backed by Stripe Connect and webhooks.',
-    features: ['Automated recurring ACH and Card billing', 'Digital lease signature workflow'],
+    architecture: `graph TD
+    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
+    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
+    Coolify --> NextApp["Next.js 16 Standalone Server"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
+    NextApp --> Resend["Resend Email API"]
+    NextApp --> GitHub["GitHub API Telemetry"]`,
+    features: [
+      'Automated recurring ACH and Card billing',
+      'Digital lease signature workflow',
+    ],
     challenges: [],
-    lessons: ['Handling asynchronous payment webhooks requires strict idempotency keys.'],
+    lessons: [
+      'Handling asynchronous payment webhooks requires strict idempotency keys.',
+    ],
     screenshots: ['/images/projects/rentovix.png'],
     gallery: ['/images/projects/rentovix.png'],
   },
