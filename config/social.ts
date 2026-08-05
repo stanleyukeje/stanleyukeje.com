@@ -27,8 +27,8 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: 'Email',
-    url: 'mailto:stanley@stanleyukeje.com',
-    username: 'stanley@stanleyukeje.com',
+    url: 'mailto:stan@stanleyukeje.com',
+    username: 'stan@stanleyukeje.com',
     iconName: 'Mail',
   },
 ];

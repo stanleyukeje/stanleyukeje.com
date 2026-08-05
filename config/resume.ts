@@ -39,9 +39,9 @@ export const resumeData: ResumeData = {
   summary:
     'Product Engineer with expertise in building scalable web applications, event-driven backends, and cloud infrastructure. Strong focus on software quality assurance, resilient architecture, zero-trust security, and high-throughput telemetry.',
   contact: {
-    email: 'stanley@stanleyukeje.com',
+    email: 'stan@stanleyukeje.com',
     github: 'https://github.com/stanleyukeje',
-    linkedin: 'https://www.linkedin.com/in/stanleyukeje/',
+    linkedin: 'https://linkedin.com/in/stanleyukeje',
     location: 'Abuja, Nigeria (Remote, Worldwide)',
     website: 'https://stanleyukeje.com',
   },

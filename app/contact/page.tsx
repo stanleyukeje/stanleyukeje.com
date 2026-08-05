@@ -72,8 +72,8 @@ export default function ContactPage() {
             <div className="flex flex-col gap-4 text-sm text-[#9CA3AF]">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#2563EB]" />
-                <Link href="mailto:stanley@stanleyukeje.com" className="hover:text-white transition-colors">
-                  stanley@stanleyukeje.com
+                <Link href="mailto:stan@stanleyukeje.com" className="hover:text-white transition-colors">
+                  stan@stanleyukeje.com
                 </Link>
               </div>
               <div className="flex items-center gap-3">

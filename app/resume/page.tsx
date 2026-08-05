@@ -33,7 +33,7 @@ export default function ResumePage() {
 
           <div className="flex items-center gap-3">
             <Link
-              href="mailto:stanley@stanleyukeje.com"
+              href="mailto:stan@stanleyukeje.com"
               className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#2563EB] text-white text-sm font-semibold hover:bg-blue-600 transition-colors"
             >
               <Mail className="h-4 w-4" />

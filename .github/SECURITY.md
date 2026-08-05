@@ -8,4 +8,4 @@
 
 ## Reporting a Vulnerability
 
-If you discover a security vulnerability within the StanleyUkeje.com platform, please send an email to **stanley@stanleyukeje.com**. All security vulnerabilities will be promptly addressed.
+If you discover a security vulnerability within the StanleyUkeje.com platform, please send an email to **stan@stanleyukeje.com**. All security vulnerabilities will be promptly addressed.

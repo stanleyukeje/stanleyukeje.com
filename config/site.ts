@@ -1,6 +1,4 @@
-import { SiteMetadata } from '@/types';
-
-export const siteConfig: SiteMetadata = {
+export const siteConfig = {
   name: 'Stanley Ukeje',
   title: 'Stanley Ukeje — Product Engineer & Systems Architect',
   description:
@@ -20,5 +18,5 @@ export const siteLinks = {
   linkedin: 'https://linkedin.com/in/stanleyukeje',
   twitter: 'https://x.com/StanleyUkeje_',
   youtube: 'https://www.youtube.com/@stanley_ukeje',
-  email: 'mailto:stanley@stanleyukeje.com',
+  email: 'mailto:stan@stanleyukeje.com',
 };

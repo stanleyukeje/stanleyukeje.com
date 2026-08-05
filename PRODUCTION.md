@@ -34,9 +34,9 @@ Configure Coolify with the following parameters:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY` = `<your-supabase-anon-key>`
 - `RESEND_API_KEY` = `<your-resend-api-key>`
 - `RESEND_FROM_EMAIL` = `contact@stanleyukeje.com`
-- `RESEND_TO_EMAIL` = `stanley@stanleyukeje.com`
+- `RESEND_TO_EMAIL` = `stan@stanleyukeje.com`
 - `GITHUB_USERNAME` = `stanleyukeje`
-- `CONTACT_EMAIL` = `stanley@stanleyukeje.com`
+- `CONTACT_EMAIL` = `stan@stanleyukeje.com`
 
 ---
 
