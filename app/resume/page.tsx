@@ -5,19 +5,26 @@ import { Section } from '@/components/layout/section';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { canonicalResumeData } from '@/config/resume';
+import { constructSEO, buildPersonJsonLd } from '@/lib/seo';
 import { Download, Briefcase, GraduationCap, Award, ExternalLink, Mail, Phone, MapPin, Globe } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Resume',
+export const metadata: Metadata = constructSEO({
+  title: 'Curriculum Vitae & Resume | Stanley Ukeje',
   description:
-    'Official Resume of Stanley Ukeje — Full Stack Software Engineer | Product Engineer.',
-};
+    'Official Resume of Stanley Ukeje — Full Stack Software Engineer | Product Engineer. Technical skills, production projects, and experience.',
+  path: '/resume',
+});
 
 export default function ResumePage() {
   const resume = canonicalResumeData;
+  const personJsonLd = buildPersonJsonLd();
 
   return (
     <div className="py-12 md:py-20 bg-[#0B1220] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <Container size="xl" className="flex flex-col gap-12 max-w-4xl">
         {/* Top Header & Primary Download CTA */}
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 border-b border-[#334155] pb-8">

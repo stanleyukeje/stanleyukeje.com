@@ -6,14 +6,18 @@ import { Section } from '@/components/layout/section';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, CheckCircle2, Code2, Server, Globe } from 'lucide-react';
+import { constructSEO, buildPersonJsonLd } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'About Stanley Ukeje',
+export const metadata: Metadata = constructSEO({
+  title: 'About Stanley Ukeje | Full Stack Software Engineer',
   description:
-    'Full Stack Software Engineer specializing in building, deploying and maintaining production web applications.',
-};
+    'Background, technical experience, and software development engineering approach of Stanley Ukeje.',
+  path: '/about',
+});
 
 export default function AboutPage() {
+  const personJsonLd = buildPersonJsonLd();
+
   const principles = [
     {
       title: 'Full Stack Software Engineering',
@@ -34,6 +38,10 @@ export default function AboutPage() {
 
   return (
     <div className="py-12 md:py-20 bg-[#0B1220] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <Container size="xl" className="flex flex-col gap-16 max-w-4xl">
         <Section className="flex flex-col gap-4">
           <Badge variant="primary" className="w-fit">

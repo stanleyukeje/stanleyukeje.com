@@ -7,6 +7,7 @@ import { ProjectHero } from '@/components/projects/project-hero';
 import { Gallery } from '@/components/projects/gallery';
 import { ArchitectureSection } from '@/components/projects/architecture-section';
 import { LessonSection } from '@/components/projects/lesson-section';
+import { constructSEO, buildSoftwareApplicationJsonLd } from '@/lib/seo';
 
 interface CaseStudyPageProps {
   params: Promise<{
@@ -25,10 +26,13 @@ export async function generateMetadata({ params }: CaseStudyPageProps): Promise<
   const project = projectsConfig.find((p) => p.slug === slug);
   if (!project) return {};
 
-  return {
-    title: `${project.name} Case Study`,
+  return constructSEO({
+    title: `${project.name} Case Study | System Architecture & Engineering`,
     description: project.description,
-  };
+    path: `/projects/${project.slug}`,
+    image: project.screenshots?.[0] || `/images/projects/${project.slug}/desktop-home.webp`,
+    keywords: project.tags,
+  });
 }
 
 export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
@@ -39,8 +43,14 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
     notFound();
   }
 
+  const softwareJsonLd = buildSoftwareApplicationJsonLd(project);
+
   return (
     <div className="py-12 md:py-20 bg-[#0B1220] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+      />
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
         <Link
           href="/projects"

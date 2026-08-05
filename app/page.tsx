@@ -9,10 +9,10 @@ import { ExperienceSection } from '@/features/home/experience-section';
 import { GitHubSection } from '@/features/home/github-section';
 import { BlogSection } from '@/features/home/blog-section';
 import { CTASection } from '@/features/home/cta-section';
-import { generatePersonJSONLD } from '@/lib/seo';
+import { buildPersonJsonLd } from '@/lib/seo';
 
 export default function Home() {
-  const jsonLd = generatePersonJSONLD();
+  const jsonLd = buildPersonJsonLd();
 
   return (
     <>

@@ -7,6 +7,7 @@ import { Container } from '@/components/layout/container';
 import { Section } from '@/components/layout/section';
 import { Badge } from '@/components/ui/badge';
 import { articlesConfig } from '@/config/articles';
+import { constructSEO, buildBlogPostingJsonLd } from '@/lib/seo';
 import { Calendar, Clock, ArrowLeft } from 'lucide-react';
 
 interface ArticlePageProps {
@@ -26,10 +27,13 @@ export async function generateMetadata({ params }: ArticlePageProps): Promise<Me
   const article = articlesConfig.find((a) => a.slug === slug);
   if (!article) return {};
 
-  return {
+  return constructSEO({
     title: article.title,
     description: article.excerpt,
-  };
+    path: `/blog/${article.slug}`,
+    image: article.coverImage,
+    keywords: article.tags,
+  });
 }
 
 export default async function ArticleDetailPage({ params }: ArticlePageProps) {
@@ -40,8 +44,14 @@ export default async function ArticleDetailPage({ params }: ArticlePageProps) {
     notFound();
   }
 
+  const blogPostingJsonLd = buildBlogPostingJsonLd(article);
+
   return (
     <div className="py-12 md:py-20 bg-[#0B1220] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingJsonLd) }}
+      />
       <Container size="xl" className="flex flex-col gap-10 max-w-3xl">
         <Link
           href="/blog"

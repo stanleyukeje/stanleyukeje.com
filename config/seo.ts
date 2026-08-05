@@ -3,22 +3,24 @@ import { siteConfig } from './site';
 
 export const defaultSEO: Metadata = {
   metadataBase: new URL(siteConfig.url),
-  title: {
-    default: siteConfig.title,
-    template: `%s | ${siteConfig.name}`,
-  },
+  title: siteConfig.title,
   description: siteConfig.description,
   authors: [{ name: siteConfig.author.name }],
   creator: siteConfig.author.name,
   keywords: [
     'Stanley Ukeje',
+    'Full Stack Software Engineer',
     'Product Engineer',
-    'Senior Software Engineer',
     'Next.js',
+    'React',
     'TypeScript',
-    'Full Stack Engineer',
-    'System Architecture',
+    'PostgreSQL',
+    'Supabase',
+    'Docker',
   ],
+  alternates: {
+    canonical: siteConfig.url,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico', sizes: 'any' },

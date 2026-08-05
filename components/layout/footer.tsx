@@ -53,8 +53,8 @@ export function Footer() {
         <div className="border-t border-[#334155] pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#CBD5E1]">
           <p>© {currentYear} Stanley Ukeje. All rights reserved.</p>
           <div className="flex gap-4">
-            <Link href="/api/health" className="hover:text-white transition-colors">
-              System Health Status
+            <Link href="/sitemap.xml" className="hover:text-white transition-colors">
+              Sitemap
             </Link>
           </div>
         </div>

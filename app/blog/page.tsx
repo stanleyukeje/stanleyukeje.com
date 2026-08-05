@@ -7,17 +7,31 @@ import { Section } from '@/components/layout/section';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { articlesConfig } from '@/config/articles';
+import { constructSEO, buildBlogPostingJsonLd } from '@/lib/seo';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
-export const metadata: Metadata = {
-  title: 'Blog & Technical Articles',
+export const metadata: Metadata = constructSEO({
+  title: 'Engineering Blog & Technical Articles | Stanley Ukeje',
   description:
-    'Engineering insights on full-stack web applications, deployment workflows, and quality assurance strategies by Stanley Ukeje.',
-};
+    'Practical articles on full-stack web development with Next.js, React, TypeScript, Supabase, and cloud deployment workflows by Stanley Ukeje.',
+  path: '/blog',
+});
 
 export default function BlogPage() {
+  const blogListJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    name: 'Stanley Ukeje Engineering Blog',
+    url: 'https://stanleyukeje.com/blog',
+    blogPost: articlesConfig.map((article) => buildBlogPostingJsonLd(article)),
+  };
+
   return (
     <div className="py-12 md:py-20 bg-[#0B1220] text-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogListJsonLd) }}
+      />
       <Container size="xl" className="flex flex-col gap-12 max-w-7xl">
         <Section className="flex flex-col gap-4 max-w-2xl">
           <Badge variant="primary" className="w-fit">
@@ -38,8 +52,9 @@ export default function BlogPage() {
                 <Link href={`/blog/${article.slug}`} className="relative w-full h-48 bg-[#0B1220] border-b border-[#334155] block overflow-hidden group">
                   <Image
                     src={article.coverImage}
-                    alt={article.title}
+                    alt={`Illustration for ${article.title}`}
                     fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                     className="object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </Link>
