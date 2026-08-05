@@ -6,9 +6,9 @@ export const projectsConfig: Project[] = [
     title: 'BayRight',
     slug: 'bayright',
     description:
-      'Enterprise platform for workflow automation, real-time analytics, and data pipeline management.',
+      'Digital payments platform for utility payments and digital transactions.',
     longDescription:
-      'BayRight is a full-featured enterprise management platform built for speed, resilience, and high-throughput data processing.',
+      'BayRight is a digital payments platform engineered for utility bill payments, user account management, and reliable transaction processing.',
     githubRepository: 'bayright',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
@@ -16,62 +16,58 @@ export const projectsConfig: Project[] = [
     caseStudy: '/projects/bayright',
     status: 'production',
     supabaseProject: 'bayright-prod',
-    deploymentProvider: 'Vercel',
+    deploymentProvider: 'Hetzner + Coolify',
     deploymentUrl: 'https://bayright.com',
-    tags: ['Workflow Automation', 'Next.js', 'PostgreSQL', 'Supabase'],
+    tags: ['Digital Payments', 'Fintech', 'Next.js', 'PostgreSQL', 'Supabase'],
     featured: true,
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Supabase', 'Docker'],
     detailedStack: {
-      frontend: ['Next.js 16 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js API Routes', 'Supabase Server Actions'],
-      database: ['PostgreSQL', 'Row Level Security (RLS)'],
-      infrastructure: ['Vercel Platform', 'Cloudflare CDN'],
-      integrations: ['Resend Email API'],
+      frontend: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js API Routes', 'Supabase Services'],
+      database: ['PostgreSQL'],
+      infrastructure: ['Docker', 'Coolify', 'Cloudflare'],
+      integrations: ['Payment Gateways', 'Resend Email API'],
     },
     github: 'https://github.com/stanleyukeje/bayright',
     demo: 'https://bayright.com',
     coverImage: '/images/projects/bayright.png',
     seo: {
-      title: 'BayRight Engineering Ecosystem Study',
+      title: 'BayRight Digital Payments Case Study',
       description:
-        'Detailed case study on BayRight: scalable data processing, architecture design, and performance optimizations.',
-      keywords: ['BayRight', 'Workflow Automation', 'Next.js', 'PostgreSQL'],
+        'Case study on BayRight: digital payments platform for utility bill payments and transaction management.',
+      keywords: ['BayRight', 'Digital Payments', 'Fintech', 'Next.js', 'PostgreSQL'],
     },
     overview:
-      'BayRight is an enterprise platform engineered to automate multi-stage operational workflows, manage data pipelines, and provide real-time dashboard analytics.',
+      'BayRight is a digital payments platform designed to handle utility bill payments, transaction processing, and user account management.',
     problem:
-      'Organizations struggled with manual data processing workflows, unverified data mutation access rules, and fragmented operational reporting tools.',
+      'Users needed a simple, fast, and dependable web portal to complete utility payments without complex navigation or high transaction latency.',
     solution:
-      'Engineered a structured workflow engine leveraging PostgreSQL Row Level Security (RLS) policies and Next.js 16 Server Components to enforce zero-trust access and fast page loading.',
+      'Engineered a responsive Next.js application backed by PostgreSQL and Supabase for secure data storage and authentication.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
-    Cloudflare --> Vercel["Vercel Edge Network"]
-    Vercel --> NextApp["Next.js 16 App Router"]
-    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
-    NextApp --> Resend["Resend Email API"]`,
+    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
+    Coolify --> NextApp["Next.js Server Container"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]`,
     features: [
-      'Multi-stage automated workflow execution',
-      'PostgreSQL Row Level Security (RLS) data isolation',
-      'Transactional notifications via Resend API',
-      'Server-side rendered analytics dashboard',
+      'Utility bill payment workflow processing',
+      'Secure user authentication and account dashboard',
+      'Transaction receipt and email notifications',
     ],
     challenges: [
       {
-        title: 'Multi-Tenant Data Access Control',
-        description: 'Ensuring strict tenant data boundary isolation across complex workflow operations.',
-        solution: 'Implemented granular PostgreSQL RLS security policies bound to Supabase Auth user sessions.',
+        title: 'Transaction State Handling',
+        description: 'Ensuring transaction statuses are correctly recorded and updated during payment processor webhooks.',
+        solution: 'Implemented idempotent database mutation handlers for payment webhooks.',
       },
     ],
     lessons: [
-      'Utilizing server components drastically reduces client JavaScript bundle sizes for data-heavy dashboards.',
-      'Decoupling transactional email dispatching behind clean API layers prevents network blocking during form handling.',
+      'Using server-side data fetching ensures transaction records load quickly without exposing sensitive API keys.',
     ],
     screenshots: ['/images/projects/bayright.png'],
     gallery: ['/images/projects/bayright.png'],
     integrations: ['Supabase', 'Resend', 'Cloudflare'],
     futureImprovements: [
-      'Planned Improvement: Add automated workflow schedule triggers via background CRON jobs.',
-      'Planned Improvement: Implement CSV export and automated reporting tools.',
+      'Planned Improvement: Add automated recurring bill payment schedules.',
     ],
   },
   {
@@ -79,68 +75,67 @@ export const projectsConfig: Project[] = [
     title: 'Yike',
     slug: 'yike',
     description:
-      'Collaborative platform designed for modern product engineering teams.',
+      'Real estate marketplace platform connecting buyers, sellers and agents.',
     longDescription:
-      'Yike simplifies cross-functional engineering collaboration with real-time updates and document management.',
+      'Yike is a real estate marketplace platform engineered with property search, listing management, and user profiles.',
     githubRepository: 'yike',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
-    demoUrl: 'https://yike.app',
+    demoUrl: 'https://yike.ng',
     caseStudy: '/projects/yike',
     status: 'production',
     supabaseProject: 'yike-prod',
     deploymentProvider: 'Hetzner + Coolify',
-    deploymentUrl: 'https://yike.app',
-    tags: ['Collaboration', 'React', 'TypeScript', 'Tailwind CSS'],
+    deploymentUrl: 'https://yike.ng',
+    tags: ['Real Estate', 'Marketplace', 'Next.js', 'PostgreSQL', 'Supabase'],
     featured: true,
-    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Supabase'],
     detailedStack: {
-      frontend: ['React', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js API Services'],
+      frontend: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js API Routes'],
       database: ['PostgreSQL', 'Supabase'],
-      infrastructure: ['Hetzner VPS', 'Docker Container'],
+      infrastructure: ['Hetzner VPS', 'Coolify', 'Docker'],
     },
     github: 'https://github.com/stanleyukeje/yike',
-    demo: 'https://yike.app',
+    demo: 'https://yike.ng',
     coverImage: '/images/projects/yike.png',
     seo: {
-      title: 'Yike Engineering Ecosystem Study',
+      title: 'Yike Real Estate Marketplace Case Study',
       description:
-        'Engineering case study on building Yike collaborative web application.',
-      keywords: ['Yike', 'Collaboration', 'React', 'TypeScript'],
+        'Case study on Yike: real estate marketplace platform with property search and listing management.',
+      keywords: ['Yike', 'Real Estate', 'Marketplace', 'Next.js', 'PostgreSQL'],
     },
     overview:
-      'Yike offers product engineering teams a clean workspace for document sharing, sprint planning, and spec reviews.',
+      'Yike is a web marketplace that allows property sellers and real estate agents to publish listings and connect with buyers.',
     problem:
-      'Engineering teams needed a lightweight, web-native tool to organize technical specifications and project requirements without bloated UI clutter.',
+      'Buyers and agents needed a clean, fast real estate portal to search property listings without clutter or heavy page load times.',
     solution:
-      'Built a fast React web interface using TypeScript and Tailwind CSS, backed by Node.js API services and PostgreSQL data persistence.',
+      'Built a web application using Next.js, React, and TypeScript with PostgreSQL data persistence for property listings.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
     Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Node.js Application Container"]
+    Coolify --> NextApp["Next.js Server Container"]
     NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]`,
     features: [
-      'Technical document and spec management',
-      'Clean markdown viewing and formatting',
-      'Sprint backlog organization interface',
+      'Property listing search and filter workflows',
+      'Agent listing submission portal',
+      'User contact and inquiry management',
     ],
     challenges: [
       {
-        title: 'Responsive Navigation & Layout State',
-        description: 'Maintaining layout stability across complex multi-column documentation views on mobile screens.',
-        solution: 'Implemented responsive sidebar drawers and flexible CSS container layouts.',
+        title: 'Listing Search Performance',
+        description: 'Optimizing property filter queries across location, price, and property type categories.',
+        solution: 'Added indexed database query columns in PostgreSQL for fast filter execution.',
       },
     ],
     lessons: [
-      'Keeping state local to document viewer components prevents unintended parent re-renders.',
+      'Structured database indexing drastically speeds up multi-parameter listing searches.',
     ],
     screenshots: ['/images/projects/yike.png'],
     gallery: ['/images/projects/yike.png'],
     integrations: ['Supabase', 'Cloudflare'],
     futureImprovements: [
-      'Planned Improvement: Add WebSocket real-time collaborative editing presence.',
-      'Planned Improvement: Add offline caching and local draft storage.',
+      'Planned Improvement: Add interactive map location search.',
     ],
   },
   {
@@ -148,125 +143,66 @@ export const projectsConfig: Project[] = [
     title: 'BamSignal',
     slug: 'bamsignal',
     description:
-      'Incident monitoring and automated alert dispatch engine.',
+      'Social discovery platform built for meaningful connections.',
     longDescription:
-      'BamSignal aggregates logs and system health metrics to dispatch alerts and notifications.',
+      'BamSignal is a social discovery platform featuring user authentication, profile messaging, and subscription management.',
     githubRepository: 'bamsignal',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
-    demoUrl: 'https://bamsignal.io',
+    demoUrl: 'https://bamsignal.com',
     caseStudy: '/projects/bamsignal',
     status: 'production',
     deploymentProvider: 'Hetzner + Coolify',
-    deploymentUrl: 'https://bamsignal.io',
-    tags: ['Monitoring', 'Incident Response', 'Node.js', 'PostgreSQL'],
+    deploymentUrl: 'https://bamsignal.com',
+    tags: ['Social Discovery', 'Next.js', 'PostgreSQL', 'Supabase'],
     featured: true,
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Supabase'],
     detailedStack: {
-      frontend: ['Next.js 16', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js API Services'],
-      database: ['PostgreSQL'],
+      frontend: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js API Routes'],
+      database: ['PostgreSQL', 'Supabase'],
       infrastructure: ['Hetzner VPS', 'Docker Container'],
     },
     github: 'https://github.com/stanleyukeje/bamsignal',
-    demo: 'https://bamsignal.io',
+    demo: 'https://bamsignal.com',
     coverImage: '/images/projects/bamsignal.png',
     seo: {
-      title: 'BamSignal Engineering Ecosystem Study',
+      title: 'BamSignal Social Discovery Platform Case Study',
       description:
-        'How BamSignal routes incident monitoring notifications.',
-      keywords: ['BamSignal', 'Monitoring', 'Incident Response', 'Next.js'],
+        'Case study on BamSignal: social discovery platform with messaging and subscription management.',
+      keywords: ['BamSignal', 'Social Discovery', 'Next.js', 'PostgreSQL', 'Supabase'],
     },
     overview:
-      'BamSignal serves as an incident alert monitoring hub for application uptime metrics.',
+      'BamSignal is a web platform created to facilitate social connections, profile discovery, and member messaging.',
     problem:
-      'Development teams needed a simple, predictable monitoring gateway to capture uptime health pings and dispatch webhook notifications.',
+      'Users needed an intuitive social discovery web interface with secure authentication and reliable messaging workflows.',
     solution:
-      'Built a Next.js 16 and Node.js monitoring service backed by PostgreSQL schema tables and HTTP health check listeners.',
+      'Engineered a responsive Next.js application using React and TypeScript backed by Supabase for authentication and database management.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
     Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Next.js Standalone Container"]
-    NextApp --> Postgres["PostgreSQL Database"]`,
+    Coolify --> NextApp["Next.js Server Container"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]`,
     features: [
-      'Application uptime health check route',
-      'Configurable alert target endpoints',
-      'Uptime status history logs',
+      'Member discovery and profile browsing',
+      'User messaging and notification dispatch',
+      'Subscription management workflows',
     ],
     challenges: [
       {
-        title: 'Asynchronous Alert Dispatch Handling',
-        description: 'Preventing webhook HTTP timeout failures during bulk alert notification dispatches.',
-        solution: 'Isolated alert dispatch calls into non-blocking asynchronous event handlers.',
+        title: 'User Profile Image Uploads',
+        description: 'Handling profile picture uploads securely and storing them efficiently.',
+        solution: 'Utilized Supabase Storage buckets with public CDN URL generation.',
       },
     ],
     lessons: [
-      'Explicit HTTP timeout configurations are critical when communicating with third-party webhook targets.',
+      'Offloading media uploads to object storage keeps database size manageable and page loads fast.',
     ],
     screenshots: ['/images/projects/bamsignal.png'],
     gallery: ['/images/projects/bamsignal.png'],
-    integrations: ['Resend', 'Cloudflare'],
+    integrations: ['Supabase', 'Cloudflare'],
     futureImprovements: [
-      'Planned Improvement: Add automated SMS notifications via Twilio integration.',
-      'Planned Improvement: Add custom escalation schedule policies.',
-    ],
-  },
-  {
-    name: 'LogicVault',
-    title: 'LogicVault',
-    slug: 'logicvault',
-    description:
-      'Zero-trust security vault and policy engine for secret management.',
-    longDescription:
-      'LogicVault provides encrypted secret distribution and access logging for environment configurations.',
-    githubRepository: 'logicvault',
-    githubOwner: 'stanleyukeje',
-    defaultBranch: 'main',
-    demoUrl: 'https://logicvault.dev',
-    caseStudy: '/projects/logicvault',
-    status: 'in-development',
-    deploymentProvider: 'Cloudflare Pages',
-    deploymentUrl: 'https://logicvault.dev',
-    tags: ['Security', 'Zero Trust', 'TypeScript'],
-    featured: false,
-    stack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'Supabase'],
-    detailedStack: {
-      frontend: ['Next.js 16', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js API Routes'],
-      database: ['PostgreSQL'],
-    },
-    github: 'https://github.com/stanleyukeje/logicvault',
-    demo: 'https://logicvault.dev',
-    coverImage: '/images/projects/logicvault.png',
-    seo: {
-      title: 'LogicVault Engineering Ecosystem Study',
-      description:
-        'Architectural design of LogicVault secret management vault.',
-      keywords: ['LogicVault', 'Security', 'Zero Trust', 'TypeScript'],
-    },
-    overview:
-      'LogicVault is an in-development secret management vault engineered to organize and distribute environment configuration variables securely.',
-    problem:
-      'Application secrets were frequently shared over insecure messaging channels or stored unencrypted in plain text repositories.',
-    solution:
-      'Designing a TypeScript secret vault utilizing client-side encryption and granular audit logging.',
-    architecture: `graph TD
-    Client["Browser Client"] --> Cloudflare["Cloudflare Pages"]
-    Cloudflare --> NextApp["Next.js App Engine"]
-    NextApp --> Supabase["Supabase Storage"]`,
-    features: [
-      'Environment variable organization interface',
-      'Audit log access history tracking',
-    ],
-    challenges: [],
-    lessons: [
-      'Secret management platforms must treat all client environments as untrusted boundaries.',
-    ],
-    screenshots: ['/images/projects/logicvault.png'],
-    gallery: ['/images/projects/logicvault.png'],
-    futureImprovements: [
-      'Planned Improvement: Implement hardware security key authentication.',
-      'Planned Improvement: Add automated secret rotation hooks.',
+      'Planned Improvement: Add push notifications for new message alerts.',
     ],
   },
   {
@@ -274,9 +210,9 @@ export const projectsConfig: Project[] = [
     title: 'Rentovix',
     slug: 'rentovix',
     description:
-      'Property management and automated lease compliance engine.',
+      'Property rental management platform with dashboards and property workflows.',
     longDescription:
-      'Rentovix streamlines tenant onboarding, digital contract signing, and automated rent collection.',
+      'Rentovix is a rental management web platform engineered to simplify tenant record tracking, rent payment logs, and property workflows.',
     githubRepository: 'rentovix',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
@@ -285,11 +221,11 @@ export const projectsConfig: Project[] = [
     status: 'production',
     deploymentProvider: 'Vercel',
     deploymentUrl: 'https://rentovix.com',
-    tags: ['Property Management', 'Next.js', 'TypeScript', 'PostgreSQL'],
+    tags: ['Property Rental', 'Next.js', 'TypeScript', 'PostgreSQL'],
     featured: false,
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL'],
     detailedStack: {
-      frontend: ['Next.js 16', 'TypeScript', 'Tailwind CSS'],
+      frontend: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
       backend: ['Node.js API Routes'],
       database: ['PostgreSQL'],
     },
@@ -297,35 +233,103 @@ export const projectsConfig: Project[] = [
     demo: 'https://rentovix.com',
     coverImage: '/images/projects/rentovix.png',
     seo: {
-      title: 'Rentovix Engineering Ecosystem Study',
+      title: 'Rentovix Property Rental Platform Case Study',
       description:
-        'Case study on building Rentovix property management platform.',
-      keywords: ['Rentovix', 'Next.js', 'PostgreSQL', 'TypeScript'],
+        'Case study on Rentovix: property rental management platform with tenant and lease tracking.',
+      keywords: ['Rentovix', 'Property Rental', 'Next.js', 'PostgreSQL', 'TypeScript'],
     },
     overview:
-      'Rentovix is a property management platform built to organize tenant records, lease documentation, and payment tracking.',
+      'Rentovix is a property management web portal built for property managers and landlords to organize tenant records and rental workflows.',
     problem:
-      'Property managers spent substantial effort tracking tenant lease records, payment statuses, and maintenance requests across paper forms.',
+      'Property managers spent substantial manual effort tracking lease agreements and rent payments across spreadsheets.',
     solution:
-      'Engineered an end-to-end web portal backed by Next.js 16, TypeScript, and PostgreSQL database models.',
+      'Built a centralized web dashboard using Next.js, TypeScript, and PostgreSQL database schemas.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN"]
     Cloudflare --> Vercel["Vercel Edge Platform"]
-    Vercel --> NextApp["Next.js App Server"]
+    Vercel --> NextApp["Next.js Application Server"]
     NextApp --> Postgres["PostgreSQL Database"]`,
     features: [
       'Tenant lease record management',
-      'Automated rent status tracking portal',
+      'Rent payment tracking dashboard',
     ],
-    challenges: [],
+    challenges: [
+      {
+        title: 'Tenant Record Organization',
+        description: 'Structuring database tables to handle property units, tenants, and lease dates cleanly.',
+        solution: 'Designed relational PostgreSQL schemas with clear foreign key constraints.',
+      },
+    ],
     lessons: [
-      'Maintaining clear data schemas for tenant lease contracts prevents billing state inconsistencies.',
+      'Proper relational database modeling prevents duplicate tenant records and simplifies query logic.',
     ],
     screenshots: ['/images/projects/rentovix.png'],
     gallery: ['/images/projects/rentovix.png'],
     futureImprovements: [
-      'Planned Improvement: Integrate automated payment gateway billing via Stripe.',
-      'Planned Improvement: Add automated digital lease signing workflow.',
+      'Planned Improvement: Add automated digital lease signing features.',
+    ],
+  },
+  {
+    name: 'LogicVault',
+    title: 'LogicVault',
+    slug: 'logicvault',
+    description:
+      'Business operations platform for workflow automation and operational management.',
+    longDescription:
+      'LogicVault is a business operations web platform built to automate operational workflows and manage administrative tasks.',
+    githubRepository: 'logicvault',
+    githubOwner: 'stanleyukeje',
+    defaultBranch: 'main',
+    demoUrl: 'https://logicvault.org',
+    caseStudy: '/projects/logicvault',
+    status: 'production',
+    deploymentProvider: 'Cloudflare Pages',
+    deploymentUrl: 'https://logicvault.org',
+    tags: ['Business Operations', 'Workflow Automation', 'Next.js', 'Supabase'],
+    featured: false,
+    stack: ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Supabase'],
+    detailedStack: {
+      frontend: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS'],
+      backend: ['Node.js API Routes'],
+      database: ['PostgreSQL', 'Supabase'],
+    },
+    github: 'https://github.com/stanleyukeje/logicvault',
+    demo: 'https://logicvault.org',
+    coverImage: '/images/projects/logicvault.png',
+    seo: {
+      title: 'LogicVault Business Operations Platform Case Study',
+      description:
+        'Case study on LogicVault: business operations platform for workflow automation.',
+      keywords: ['LogicVault', 'Business Operations', 'Next.js', 'Supabase', 'TypeScript'],
+    },
+    overview:
+      'LogicVault is a business operations web platform built to automate task workflows and maintain operational records.',
+    problem:
+      'Small business teams needed an organized internal dashboard to track operational tasks and team workflows without complex software setups.',
+    solution:
+      'Developed a clean Next.js web application utilizing React, TypeScript, and Supabase for real-time task status tracking.',
+    architecture: `graph TD
+    Client["Browser Client"] --> Cloudflare["Cloudflare Pages"]
+    Cloudflare --> NextApp["Next.js Application Engine"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]`,
+    features: [
+      'Operational task workflow management',
+      'Team activity logging dashboard',
+    ],
+    challenges: [
+      {
+        title: 'Task Status Synchronization',
+        description: 'Keeping team task statuses updated across multiple open browser tabs.',
+        solution: 'Leveraged Supabase realtime subscriptions for instant state updates.',
+      },
+    ],
+    lessons: [
+      'Realtime database triggers provide immediate feedback to users working on shared team tasks.',
+    ],
+    screenshots: ['/images/projects/logicvault.png'],
+    gallery: ['/images/projects/logicvault.png'],
+    futureImprovements: [
+      'Planned Improvement: Add automated email task reminders.',
     ],
   },
 ];

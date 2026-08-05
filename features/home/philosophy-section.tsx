@@ -1,27 +1,27 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Cpu, ShieldCheck, Zap } from 'lucide-react';
+import { Code2, ShieldCheck, Zap } from 'lucide-react';
 
 export function PhilosophySection() {
   const points = [
     {
-      icon: Cpu,
-      title: 'Systems & Architecture Design',
+      icon: Code2,
+      title: 'Practical Software Architecture',
       description:
-        'Software should be built with clear boundaries, modular design, and loose coupling. Every platform service is isolated behind standard interface contracts.',
+        'Building full-stack web applications with clean component boundaries, maintainable TypeScript types, and straightforward database schemas.',
     },
     {
       icon: ShieldCheck,
-      title: 'Software Quality Assurance',
+      title: 'Quality Assurance & Testing',
       description:
-        'Quality is not an afterthought; it is built into the workflow. Comprehensive static analysis, type safety, automated tests, and fail-fast assertions prevent regressions.',
+        'Ensuring code reliability with strict linting, TypeScript compilation checks, and Playwright automated tests before deploying to production.',
     },
     {
       icon: Zap,
-      title: 'Performance & Telemetry',
+      title: 'Performance & Deployment',
       description:
-        'Latency matters. Sub-100ms API response targets, server-side caching, and real-time observability telemetry ensure peak user experiences.',
+        'Optimizing web applications for fast page loads, responsive user interfaces, and containerized deployment with Docker and Coolify.',
     },
   ];
 
@@ -30,20 +30,20 @@ export function PhilosophySection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
         <div className="flex flex-col gap-3 max-w-2xl">
           <Badge variant="primary" className="w-fit">
-            Core Philosophy
+            Engineering Approach
           </Badge>
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Engineering Principles & Craftsmanship
+            How I Build Software
           </h2>
           <p className="text-base text-[#CBD5E1] leading-[1.7]">
-            How software systems are architected, verified, and deployed.
+            Practical principles focused on reliability, performance, and clean code.
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {points.map((pt) => (
             <Card key={pt.title} hoverEffect className="flex flex-col gap-4">
-              <div className="p-2.5 rounded-lg bg-[#2563EB]/10 text-[#2563EB] w-fit">
+              <div className="p-2.5 rounded-lg bg-[#2563EB]/10 text-[#38BDF8] w-fit">
                 <pt.icon className="h-6 w-6" />
               </div>
               <h3 className="text-xl font-bold text-white">{pt.title}</h3>

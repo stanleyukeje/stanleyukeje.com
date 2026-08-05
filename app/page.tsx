@@ -7,6 +7,7 @@ import { ExpertiseSection } from '@/features/home/expertise-section';
 import { ProcessSection } from '@/features/home/process-section';
 import { ExperienceSection } from '@/features/home/experience-section';
 import { GitHubSection } from '@/features/home/github-section';
+import { BlogSection } from '@/features/home/blog-section';
 import { CTASection } from '@/features/home/cta-section';
 import { generatePersonJSONLD } from '@/lib/seo';
 
@@ -27,6 +28,7 @@ export default function Home() {
       <ProcessSection />
       <ExperienceSection />
       <GitHubSection />
+      <BlogSection />
       <CTASection />
     </>
   );
