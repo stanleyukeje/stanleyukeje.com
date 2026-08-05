@@ -9,8 +9,9 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Send, CheckCircle2, ExternalLink } from 'lucide-react';
+import { Mail, MapPin, Phone, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 import { socialLinks } from '@/config/social';
+import { canonicalResumeData } from '@/config/resume';
 
 function getRandomNum() {
   return Math.floor(Math.random() * 9) + 1;
@@ -114,6 +115,12 @@ export default function ContactPage() {
                 <Mail className="h-5 w-5 text-[#2563EB]" />
                 <a href="mailto:stan@stanleyukeje.com" className="hover:text-white transition-colors">
                   stan@stanleyukeje.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="h-5 w-5 text-[#2563EB]" />
+                <a href={`tel:${canonicalResumeData.contact.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
+                  {canonicalResumeData.contact.phone}
                 </a>
               </div>
               <div className="flex items-center gap-3">

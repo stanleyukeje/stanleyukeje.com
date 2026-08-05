@@ -60,7 +60,7 @@ export const canonicalResumeData: CanonicalResumeData = {
   pdfPath: '/resume/Stanley_Ukeje_CV.pdf',
   contact: {
     location: 'Sharjah, United Arab Emirates',
-    phone: '+2347066621779',
+    phone: '+971 50 390 0735',
     email: 'stan@stanleyukeje.com',
     website: 'https://stanleyukeje.com',
     github: SOCIAL_URLS.github,
