@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Link from 'next/link';
 import { Container } from '@/components/layout/container';
 import { Section } from '@/components/layout/section';
 import { Card } from '@/components/ui/card';
@@ -8,7 +9,8 @@ import { Badge } from '@/components/ui/badge';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
-import { Mail, MapPin, Send, CheckCircle2 } from 'lucide-react';
+import { Mail, MapPin, Send, CheckCircle2, ExternalLink } from 'lucide-react';
+import { socialLinks } from '@/config/social';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -65,16 +67,38 @@ export default function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           <Card className="flex flex-col gap-6 lg:col-span-1 h-fit">
             <h2 className="text-xl font-bold text-white border-b border-[#1F2937] pb-3">
-              Direct Contact
+              Direct Contact & Networks
             </h2>
             <div className="flex flex-col gap-4 text-sm text-[#9CA3AF]">
               <div className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-[#2563EB]" />
-                <span>stanley@stanleyukeje.com</span>
+                <Link href="mailto:stanley@stanleyukeje.com" className="hover:text-white transition-colors">
+                  stanley@stanleyukeje.com
+                </Link>
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-[#2563EB]" />
                 <span>Abuja, Nigeria (Remote, Worldwide)</span>
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-3 pt-4 border-t border-[#1F2937]">
+              <h3 className="text-xs font-semibold text-white uppercase tracking-wider">
+                Official Channels
+              </h3>
+              <div className="flex flex-col gap-2">
+                {socialLinks.map((s) => (
+                  <Link
+                    key={s.platform}
+                    href={s.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-[#9CA3AF] hover:text-[#2563EB] transition-colors flex items-center justify-between"
+                  >
+                    <span>{s.platform}</span>
+                    <ExternalLink className="h-3 w-3" />
+                  </Link>
+                ))}
               </div>
             </div>
           </Card>

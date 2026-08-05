@@ -44,13 +44,6 @@ export const defaultSEO: Metadata = {
         type: 'image/png',
         alt: siteConfig.name,
       },
-      {
-        url: `${siteConfig.url}/icon.webp`,
-        width: 512,
-        height: 512,
-        type: 'image/webp',
-        alt: siteConfig.name,
-      },
     ],
   },
   twitter: {
@@ -58,7 +51,7 @@ export const defaultSEO: Metadata = {
     title: siteConfig.title,
     description: siteConfig.description,
     images: [`${siteConfig.url}/og-image.png`],
-    creator: '@stanleyukeje',
+    creator: '@StanleyUkeje_',
   },
   robots: {
     index: true,

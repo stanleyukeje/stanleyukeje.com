@@ -9,9 +9,21 @@ export const socialLinks: SocialLink[] = [
   },
   {
     platform: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/stanleyukeje/',
+    url: 'https://linkedin.com/in/stanleyukeje',
     username: 'stanleyukeje',
     iconName: 'Linkedin',
+  },
+  {
+    platform: 'X (Twitter)',
+    url: 'https://x.com/StanleyUkeje_',
+    username: 'StanleyUkeje_',
+    iconName: 'Twitter',
+  },
+  {
+    platform: 'YouTube',
+    url: 'https://www.youtube.com/@stanley_ukeje',
+    username: '@stanley_ukeje',
+    iconName: 'Youtube',
   },
   {
     platform: 'Email',
