@@ -5,11 +5,28 @@ import { sendAutoResponseEmail } from '@/lib/resend/send-auto-response';
 export async function POST(request: Request) {
   try {
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const { name, email, subject, message, num1, num2, mathAnswer } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
         { error: 'Missing required contact form fields.' },
+        { status: 400 }
+      );
+    }
+
+    // Server-side Math Human Verification
+    const parsedN1 = parseInt(num1, 10);
+    const parsedN2 = parseInt(num2, 10);
+    const parsedAns = parseInt(mathAnswer, 10);
+
+    if (
+      isNaN(parsedN1) ||
+      isNaN(parsedN2) ||
+      isNaN(parsedAns) ||
+      parsedAns !== parsedN1 + parsedN2
+    ) {
+      return NextResponse.json(
+        { error: 'Human verification failed. Incorrect math answer.' },
         { status: 400 }
       );
     }
@@ -39,7 +56,7 @@ export async function POST(request: Request) {
       });
     } catch (autoErr) {
       console.error('Non-blocking error dispatching auto-response email:', autoErr);
-      // Non-blocking: Do not fail the visitor request if auto-response fails
+      // Non-blocking: Do not fail visitor request if auto-response fails
     }
 
     return NextResponse.json({

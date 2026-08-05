@@ -12,6 +12,10 @@ import { Button } from '@/components/ui/button';
 import { Mail, MapPin, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 import { socialLinks } from '@/config/social';
 
+function getRandomNum() {
+  return Math.floor(Math.random() * 9) + 1;
+}
+
 export default function ContactPage() {
   const [formData, setFormData] = useState({
     name: '',
@@ -20,11 +24,32 @@ export default function ContactPage() {
     message: '',
   });
 
+  const [{ mathNum1, mathNum2 }, setMathQuestion] = useState(() => ({
+    mathNum1: getRandomNum(),
+    mathNum2: getRandomNum(),
+  }));
+
+  const [userAnswer, setUserAnswer] = useState('');
+  const [touchedMath, setTouchedMath] = useState(false);
+
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
+  const generateNewMathQuestion = () => {
+    setMathQuestion({
+      mathNum1: getRandomNum(),
+      mathNum2: getRandomNum(),
+    });
+    setUserAnswer('');
+    setTouchedMath(false);
+  };
+
+  const isMathCorrect = parseInt(userAnswer.trim(), 10) === mathNum1 + mathNum2;
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isMathCorrect) return;
+
     setStatus('loading');
     setErrorMessage('');
 
@@ -32,13 +57,19 @@ export default function ContactPage() {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          num1: mathNum1,
+          num2: mathNum2,
+          mathAnswer: userAnswer,
+        }),
       });
 
       const data = await res.json();
       if (res.ok && data.success) {
         setStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
+        generateNewMathQuestion();
       } else {
         setStatus('error');
         setErrorMessage(data.error || 'Failed to submit contact message.');
@@ -47,6 +78,11 @@ export default function ContactPage() {
       setStatus('error');
       setErrorMessage('Network error while dispatching message.');
     }
+  };
+
+  const handleResetForm = () => {
+    setStatus('idle');
+    generateNewMathQuestion();
   };
 
   return (
@@ -111,7 +147,7 @@ export default function ContactPage() {
                 <p className="text-sm text-[#CBD5E1] max-w-md leading-[1.7]">
                   Thanks! Your message has been sent successfully. I’ve also sent a confirmation email to your inbox. I’ll get back to you as soon as possible.
                 </p>
-                <Button variant="outline" onClick={() => setStatus('idle')} className="mt-4">
+                <Button variant="outline" onClick={handleResetForm} className="mt-4">
                   Send Another Message
                 </Button>
               </div>
@@ -172,11 +208,37 @@ export default function ContactPage() {
                   />
                 </div>
 
+                {/* Single inline math verification row */}
+                <div className="flex items-center gap-3 pt-2">
+                  <span className="text-xs font-medium text-[#CBD5E1] whitespace-nowrap">
+                    What is {mathNum1} + {mathNum2}?
+                  </span>
+                  <Input
+                    type="text"
+                    inputMode="numeric"
+                    autoComplete="off"
+                    aria-label="Math verification answer"
+                    placeholder="Answer"
+                    value={userAnswer}
+                    onChange={(e) => setUserAnswer(e.target.value)}
+                    onBlur={() => setTouchedMath(true)}
+                    className={`w-24 text-xs py-1.5 px-2.5 ${
+                      touchedMath && !isMathCorrect && userAnswer.length > 0
+                        ? 'border-[#EF4444] focus:ring-[#EF4444]'
+                        : ''
+                    }`}
+                  />
+                </div>
+
                 {status === 'error' && (
                   <p className="text-xs text-[#EF4444] font-medium">{errorMessage}</p>
                 )}
 
-                <Button type="submit" disabled={status === 'loading'} className="w-fit flex items-center gap-2">
+                <Button
+                  type="submit"
+                  disabled={status === 'loading' || !isMathCorrect}
+                  className="w-fit flex items-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   <Send className="h-4 w-4" />
                   <span>{status === 'loading' ? 'Dispatching...' : 'Send Message'}</span>
                 </Button>
