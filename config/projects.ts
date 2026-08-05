@@ -18,15 +18,15 @@ export const projectsConfig: Project[] = [
     supabaseProject: 'bayright-prod',
     deploymentProvider: 'Vercel',
     deploymentUrl: 'https://bayright.com',
-    tags: ['Workflow Automation', 'Next.js', 'PostgreSQL', 'Real-time Telemetry'],
+    tags: ['Workflow Automation', 'Next.js', 'PostgreSQL', 'Supabase'],
     featured: true,
     stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Supabase', 'PostgreSQL'],
     detailedStack: {
       frontend: ['Next.js 16 (App Router)', 'React 19', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js API Routes', 'Edge Functions', 'Supabase Services'],
+      backend: ['Node.js API Routes', 'Supabase Server Actions'],
       database: ['PostgreSQL', 'Row Level Security (RLS)'],
       infrastructure: ['Vercel Platform', 'Cloudflare CDN'],
-      integrations: ['Stripe Payments', 'Resend Email API'],
+      integrations: ['Resend Email API'],
     },
     github: 'https://github.com/stanleyukeje/bayright',
     demo: 'https://bayright.com',
@@ -38,46 +38,40 @@ export const projectsConfig: Project[] = [
       keywords: ['BayRight', 'Workflow Automation', 'Next.js', 'PostgreSQL'],
     },
     overview:
-      'BayRight is an enterprise management platform designed to automate multi-stage operational workflows, orchestrate background jobs, and stream live analytical telemetry to engineering dashboards.',
+      'BayRight is an enterprise platform engineered to automate multi-stage operational workflows, manage data pipelines, and provide real-time dashboard analytics.',
     problem:
-      'Engineering teams struggled with fragmented third-party automation tools, high-latency status updates across disparate databases, and unverified data mutation access control.',
+      'Organizations struggled with manual data processing workflows, unverified data mutation access rules, and fragmented operational reporting tools.',
     solution:
-      'Engineered a unified reactive workflow engine backed by PostgreSQL Row Level Security (RLS) policies and Next.js 16 Server Components to guarantee zero-trust authorization and low-latency client rendering.',
+      'Engineered a structured workflow engine leveraging PostgreSQL Row Level Security (RLS) policies and Next.js 16 Server Components to enforce zero-trust access and fast page loading.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
-    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Next.js 16 Standalone Server"]
+    Cloudflare --> Vercel["Vercel Edge Network"]
+    Vercel --> NextApp["Next.js 16 App Router"]
     NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
-    NextApp --> Resend["Resend Email API"]
-    NextApp --> GitHub["GitHub API Telemetry"]`,
+    NextApp --> Resend["Resend Email API"]`,
     features: [
-      'Multi-stage automated workflow execution engine',
+      'Multi-stage automated workflow execution',
       'PostgreSQL Row Level Security (RLS) data isolation',
-      'Real-time status updates via WebSockets',
       'Transactional notifications via Resend API',
+      'Server-side rendered analytics dashboard',
     ],
     challenges: [
       {
-        title: 'High-Frequency Real-time State Synchronization',
-        description: 'Synchronizing multi-tenant dashboard state across hundreds of concurrent sessions without causing socket bottlenecks.',
-        solution: 'Implemented state debouncing and ring-buffered WebSockets backed by Redis state caching.',
-      },
-      {
-        title: 'Zero-Downtime Database Schema Alterations',
-        description: 'Executing structural migrations on high-write PostgreSQL tables without locking operational writes.',
-        solution: 'Used blue/green migration scripts with fallback healthcheck verification.',
+        title: 'Multi-Tenant Data Access Control',
+        description: 'Ensuring strict tenant data boundary isolation across complex workflow operations.',
+        solution: 'Implemented granular PostgreSQL RLS security policies bound to Supabase Auth user sessions.',
       },
     ],
     lessons: [
-      'Decoupling external service integrations into clean boundary modules prevents vendor lock-in.',
-      'Server Components drastically reduce client JS bundle sizes for complex dashboard layouts.',
+      'Utilizing server components drastically reduces client JavaScript bundle sizes for data-heavy dashboards.',
+      'Decoupling transactional email dispatching behind clean API layers prevents network blocking during form handling.',
     ],
     screenshots: ['/images/projects/bayright.png'],
     gallery: ['/images/projects/bayright.png'],
-    integrations: ['Supabase', 'Resend', 'Stripe', 'Cloudflare'],
+    integrations: ['Supabase', 'Resend', 'Cloudflare'],
     futureImprovements: [
-      'Implement GraphQL API gateway for custom client queries.',
-      'Add distributed tracing via OpenTelemetry.',
+      'Planned Improvement: Add automated workflow schedule triggers via background CRON jobs.',
+      'Planned Improvement: Implement CSV export and automated reporting tools.',
     ],
   },
   {
@@ -85,9 +79,9 @@ export const projectsConfig: Project[] = [
     title: 'Yike',
     slug: 'yike',
     description:
-      'High-performance collaborative platform designed for modern product engineering teams.',
+      'Collaborative platform designed for modern product engineering teams.',
     longDescription:
-      'Yike simplifies cross-functional engineering collaboration with real-time updates and low-latency state synchronization.',
+      'Yike simplifies cross-functional engineering collaboration with real-time updates and document management.',
     githubRepository: 'yike',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
@@ -97,14 +91,14 @@ export const projectsConfig: Project[] = [
     supabaseProject: 'yike-prod',
     deploymentProvider: 'Hetzner + Coolify',
     deploymentUrl: 'https://yike.app',
-    tags: ['Real-time Collaboration', 'WebSockets', 'Redis', 'TypeScript'],
+    tags: ['Collaboration', 'React', 'TypeScript', 'Tailwind CSS'],
     featured: true,
-    stack: ['React', 'TypeScript', 'Tailwind CSS', 'WebSockets', 'Node.js'],
+    stack: ['React', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
     detailedStack: {
       frontend: ['React', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js', 'WebSocket Server'],
-      database: ['Redis', 'PostgreSQL'],
-      infrastructure: ['Hetzner Cloud', 'Docker Container'],
+      backend: ['Node.js API Services'],
+      database: ['PostgreSQL', 'Supabase'],
+      infrastructure: ['Hetzner VPS', 'Docker Container'],
     },
     github: 'https://github.com/stanleyukeje/yike',
     demo: 'https://yike.app',
@@ -112,50 +106,51 @@ export const projectsConfig: Project[] = [
     seo: {
       title: 'Yike Engineering Ecosystem Study',
       description:
-        'Engineering case study on building Yike with real-time WebSockets and modern UI patterns.',
-      keywords: ['Yike', 'Collaboration', 'WebSockets', 'TypeScript'],
+        'Engineering case study on building Yike collaborative web application.',
+      keywords: ['Yike', 'Collaboration', 'React', 'TypeScript'],
     },
     overview:
-      'Yike provides modern engineering teams with a unified workspace for collaborative document editing, sprint planning, and spec reviews.',
+      'Yike offers product engineering teams a clean workspace for document sharing, sprint planning, and spec reviews.',
     problem:
-      'Engineering teams lacked a lightweight, distraction-free collaborative tool that maintained instant local responsiveness without heavy desktop client footprints.',
+      'Engineering teams needed a lightweight, web-native tool to organize technical specifications and project requirements without bloated UI clutter.',
     solution:
-      'Designed a lightweight web application powered by a custom Node.js WebSocket engine backed by Redis state caching and optimistic UI client mutations.',
+      'Built a fast React web interface using TypeScript and Tailwind CSS, backed by Node.js API services and PostgreSQL data persistence.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
     Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Next.js 16 Standalone Server"]
-    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
-    NextApp --> Resend["Resend Email API"]
-    NextApp --> GitHub["GitHub API Telemetry"]`,
+    Coolify --> NextApp["Node.js Application Container"]
+    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]`,
     features: [
-      'Real-time collaborative document editing',
-      'Optimistic state updates for instant responsiveness',
-      'Markdown parsing and code syntax highlighting',
+      'Technical document and spec management',
+      'Clean markdown viewing and formatting',
+      'Sprint backlog organization interface',
     ],
     challenges: [
       {
-        title: 'Concurrent Edit State Conflict Resolution',
-        description: 'Handling overlapping document edits from remote team sessions without data loss.',
-        solution: 'Implemented Operational Transformation (OT) primitives for message ordering.',
+        title: 'Responsive Navigation & Layout State',
+        description: 'Maintaining layout stability across complex multi-column documentation views on mobile screens.',
+        solution: 'Implemented responsive sidebar drawers and flexible CSS container layouts.',
       },
     ],
     lessons: [
-      'Optimistic UI patterns require robust rollback routines when network operations fail.',
+      'Keeping state local to document viewer components prevents unintended parent re-renders.',
     ],
     screenshots: ['/images/projects/yike.png'],
     gallery: ['/images/projects/yike.png'],
-    integrations: ['Redis', 'WebSockets'],
-    futureImprovements: ['Add CRDT-based offline document editing.'],
+    integrations: ['Supabase', 'Cloudflare'],
+    futureImprovements: [
+      'Planned Improvement: Add WebSocket real-time collaborative editing presence.',
+      'Planned Improvement: Add offline caching and local draft storage.',
+    ],
   },
   {
     name: 'BamSignal',
     title: 'BamSignal',
     slug: 'bamsignal',
     description:
-      'Real-time incident monitoring and automated alert dispatch engine.',
+      'Incident monitoring and automated alert dispatch engine.',
     longDescription:
-      'BamSignal aggregates metrics and logs from multi-cloud infrastructure to dispatch high-priority alerts under 100ms.',
+      'BamSignal aggregates logs and system health metrics to dispatch alerts and notifications.',
     githubRepository: 'bamsignal',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
@@ -164,14 +159,14 @@ export const projectsConfig: Project[] = [
     status: 'production',
     deploymentProvider: 'Hetzner + Coolify',
     deploymentUrl: 'https://bamsignal.io',
-    tags: ['Monitoring', 'Incident Response', 'Go', 'Redis'],
+    tags: ['Monitoring', 'Incident Response', 'Node.js', 'PostgreSQL'],
     featured: true,
-    stack: ['Go', 'Next.js', 'TypeScript', 'Tailwind CSS', 'Redis'],
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Node.js', 'PostgreSQL'],
     detailedStack: {
       frontend: ['Next.js 16', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Go (Golang)', 'Gin Framework'],
-      database: ['Redis', 'PostgreSQL'],
-      infrastructure: ['Hetzner VPS', 'Docker'],
+      backend: ['Node.js API Services'],
+      database: ['PostgreSQL'],
+      infrastructure: ['Hetzner VPS', 'Docker Container'],
     },
     github: 'https://github.com/stanleyukeje/bamsignal',
     demo: 'https://bamsignal.io',
@@ -179,95 +174,97 @@ export const projectsConfig: Project[] = [
     seo: {
       title: 'BamSignal Engineering Ecosystem Study',
       description:
-        'How BamSignal processes thousands of signals per second with sub-100ms latency.',
-      keywords: ['BamSignal', 'Monitoring', 'Incident Response', 'Go'],
+        'How BamSignal routes incident monitoring notifications.',
+      keywords: ['BamSignal', 'Monitoring', 'Incident Response', 'Next.js'],
     },
     overview:
-      'BamSignal acts as an early warning monitoring gateway for cloud infrastructure alerts.',
+      'BamSignal serves as an incident alert monitoring hub for application uptime metrics.',
     problem:
-      'Existing alerting platforms incurred high latency delays and expensive per-seat pricing models.',
+      'Development teams needed a simple, predictable monitoring gateway to capture uptime health pings and dispatch webhook notifications.',
     solution:
-      'Built a high-performance Go backend service capable of evaluating 10,000+ signals/sec with sub-100ms alert dispatching.',
+      'Built a Next.js 16 and Node.js monitoring service backed by PostgreSQL schema tables and HTTP health check listeners.',
     architecture: `graph TD
     Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
     Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Next.js 16 Standalone Server"]
-    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
-    NextApp --> Resend["Resend Email API"]
-    NextApp --> GitHub["GitHub API Telemetry"]`,
+    Coolify --> NextApp["Next.js Standalone Container"]
+    NextApp --> Postgres["PostgreSQL Database"]`,
     features: [
-      'Sub-100ms webhook alert dispatch engine',
-      'Configurable noise-reduction alert escalation policies',
-      'Infrastructure uptime telemetry dashboard',
+      'Application uptime health check route',
+      'Configurable alert target endpoints',
+      'Uptime status history logs',
     ],
     challenges: [
       {
-        title: 'Garbage Collection Pressure Under Traffic Spikes',
-        description: 'Preventing memory spikes during sudden alert volume spikes.',
-        solution: 'Implemented buffer pooling via sync.Pool in Go.',
+        title: 'Asynchronous Alert Dispatch Handling',
+        description: 'Preventing webhook HTTP timeout failures during bulk alert notification dispatches.',
+        solution: 'Isolated alert dispatch calls into non-blocking asynchronous event handlers.',
       },
     ],
     lessons: [
-      'Go is exceptional for microservices requiring predictable low-latency throughput.',
+      'Explicit HTTP timeout configurations are critical when communicating with third-party webhook targets.',
     ],
     screenshots: ['/images/projects/bamsignal.png'],
     gallery: ['/images/projects/bamsignal.png'],
-    integrations: ['Twilio', 'PagerDuty API', 'Redis'],
-    futureImprovements: ['Support eBPF system kernel monitoring hooks.'],
+    integrations: ['Resend', 'Cloudflare'],
+    futureImprovements: [
+      'Planned Improvement: Add automated SMS notifications via Twilio integration.',
+      'Planned Improvement: Add custom escalation schedule policies.',
+    ],
   },
   {
     name: 'LogicVault',
     title: 'LogicVault',
     slug: 'logicvault',
     description:
-      'Zero-trust security vault and policy engine for cloud environment secrets.',
+      'Zero-trust security vault and policy engine for secret management.',
     longDescription:
-      'LogicVault provides end-to-end encrypted secret distribution and dynamic policy enforcement for microservices.',
+      'LogicVault provides encrypted secret distribution and access logging for environment configurations.',
     githubRepository: 'logicvault',
     githubOwner: 'stanleyukeje',
     defaultBranch: 'main',
     caseStudy: '/projects/logicvault',
     status: 'in-development',
     deploymentProvider: 'Cloudflare Pages',
-    tags: ['Security', 'Zero Trust', 'Cryptography'],
+    tags: ['Security', 'Zero Trust', 'TypeScript'],
     featured: false,
-    stack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'Supabase', 'Vault'],
+    stack: ['TypeScript', 'Next.js', 'Tailwind CSS', 'Supabase'],
     detailedStack: {
       frontend: ['Next.js 16', 'TypeScript', 'Tailwind CSS'],
-      backend: ['Node.js', 'Supabase Edge Functions'],
-      database: ['PostgreSQL', 'Vault Encryption'],
+      backend: ['Node.js API Routes'],
+      database: ['PostgreSQL'],
     },
     github: 'https://github.com/stanleyukeje/logicvault',
     coverImage: '/images/projects/logicvault.png',
     seo: {
       title: 'LogicVault Engineering Ecosystem Study',
       description:
-        'Architectural design of LogicVault zero-trust secret management engine.',
-      keywords: ['LogicVault', 'Security', 'Zero Trust', 'Cryptography'],
+        'Architectural design of LogicVault secret management vault.',
+      keywords: ['LogicVault', 'Security', 'Zero Trust', 'TypeScript'],
     },
     overview:
-      'LogicVault allows developer teams to manage and rotate application secrets securely.',
+      'LogicVault is an in-development secret management vault engineered to organize and distribute environment configuration variables securely.',
     problem:
-      'Secrets were frequently committed to code repositories or shared insecurely over messaging channels.',
+      'Application secrets were frequently shared over insecure messaging channels or stored unencrypted in plain text repositories.',
     solution:
-      'Created an AES-256 client-side encrypted vault with hardware key support and audit logs.',
+      'Designing a TypeScript secret vault utilizing client-side encryption and granular audit logging.',
     architecture: `graph TD
-    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
-    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Next.js 16 Standalone Server"]
-    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
-    NextApp --> Resend["Resend Email API"]
-    NextApp --> GitHub["GitHub API Telemetry"]`,
+    Client["Browser Client"] --> Cloudflare["Cloudflare Pages"]
+    Cloudflare --> NextApp["Next.js App Engine"]
+    NextApp --> Supabase["Supabase Storage"]`,
     features: [
-      'Client-side AES-256 secret encryption',
-      'Audit trail log telemetry',
+      'Environment variable organization interface',
+      'Audit log access history tracking',
     ],
     challenges: [],
     lessons: [
-      'Encryption at rest must be paired with zero-trust key distribution policies.',
+      'Secret management platforms must treat all client environments as untrusted boundaries.',
     ],
     screenshots: ['/images/projects/logicvault.png'],
     gallery: ['/images/projects/logicvault.png'],
+    futureImprovements: [
+      'Planned Improvement: Implement hardware security key authentication.',
+      'Planned Improvement: Add automated secret rotation hooks.',
+    ],
   },
   {
     name: 'Rentovix',
@@ -285,14 +282,13 @@ export const projectsConfig: Project[] = [
     status: 'production',
     deploymentProvider: 'Vercel',
     deploymentUrl: 'https://rentovix.com',
-    tags: ['Fintech', 'Stripe', 'Property Management'],
+    tags: ['Property Management', 'Next.js', 'TypeScript', 'PostgreSQL'],
     featured: false,
-    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Stripe', 'PostgreSQL'],
+    stack: ['Next.js', 'TypeScript', 'Tailwind CSS', 'PostgreSQL'],
     detailedStack: {
       frontend: ['Next.js 16', 'TypeScript', 'Tailwind CSS'],
       backend: ['Node.js API Routes'],
       database: ['PostgreSQL'],
-      integrations: ['Stripe Billing', 'DocuSign API'],
     },
     github: 'https://github.com/stanleyukeje/rentovix',
     demo: 'https://rentovix.com',
@@ -300,31 +296,33 @@ export const projectsConfig: Project[] = [
     seo: {
       title: 'Rentovix Engineering Ecosystem Study',
       description:
-        'Case study on building automated payment flows and lease compliance with Rentovix.',
-      keywords: ['Rentovix', 'Fintech', 'Stripe', 'Next.js'],
+        'Case study on building Rentovix property management platform.',
+      keywords: ['Rentovix', 'Next.js', 'PostgreSQL', 'TypeScript'],
     },
     overview:
-      'Rentovix automates lease management, tenant background checks, and recurring rent payments.',
+      'Rentovix is a property management platform built to organize tenant records, lease documentation, and payment tracking.',
     problem:
-      'Property managers spent hours tracking manual bank transfers and physical lease agreements.',
+      'Property managers spent substantial effort tracking tenant lease records, payment statuses, and maintenance requests across paper forms.',
     solution:
-      'Engineered an end-to-end automated billing portal backed by Stripe Connect and webhooks.',
+      'Engineered an end-to-end web portal backed by Next.js 16, TypeScript, and PostgreSQL database models.',
     architecture: `graph TD
-    Client["Browser Client"] --> Cloudflare["Cloudflare CDN & Proxy"]
-    Cloudflare --> Coolify["Coolify Orchestrator (Hetzner VPS)"]
-    Coolify --> NextApp["Next.js 16 Standalone Server"]
-    NextApp --> Supabase["Supabase (PostgreSQL & Auth)"]
-    NextApp --> Resend["Resend Email API"]
-    NextApp --> GitHub["GitHub API Telemetry"]`,
+    Client["Browser Client"] --> Cloudflare["Cloudflare CDN"]
+    Cloudflare --> Vercel["Vercel Edge Platform"]
+    Vercel --> NextApp["Next.js App Server"]
+    NextApp --> Postgres["PostgreSQL Database"]`,
     features: [
-      'Automated recurring ACH and Card billing',
-      'Digital lease signature workflow',
+      'Tenant lease record management',
+      'Automated rent status tracking portal',
     ],
     challenges: [],
     lessons: [
-      'Handling asynchronous payment webhooks requires strict idempotency keys.',
+      'Maintaining clear data schemas for tenant lease contracts prevents billing state inconsistencies.',
     ],
     screenshots: ['/images/projects/rentovix.png'],
     gallery: ['/images/projects/rentovix.png'],
+    futureImprovements: [
+      'Planned Improvement: Integrate automated payment gateway billing via Stripe.',
+      'Planned Improvement: Add automated digital lease signing workflow.',
+    ],
   },
 ];

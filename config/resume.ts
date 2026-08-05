@@ -37,7 +37,7 @@ export interface ResumeData {
 
 export const resumeData: ResumeData = {
   summary:
-    'Product Engineer with expertise in building scalable web applications, event-driven backends, and cloud infrastructure. Strong focus on software quality assurance, resilient architecture, zero-trust security, and high-throughput telemetry.',
+    'Product Engineer with expertise in building web applications, API services, and cloud infrastructure. Strong focus on software quality assurance, resilient architecture, zero-trust security, and maintainable TypeScript codebases.',
   contact: {
     email: 'stan@stanleyukeje.com',
     github: 'https://github.com/stanleyukeje',
@@ -47,16 +47,16 @@ export const resumeData: ResumeData = {
   },
   skillCategories: [
     {
-      category: 'Languages & Core',
-      skills: ['TypeScript', 'JavaScript (ESNext)', 'Go (Golang)', 'SQL', 'HTML5/CSS3'],
+      category: 'Languages & Web Core',
+      skills: ['TypeScript', 'JavaScript (ESNext)', 'SQL', 'HTML5/CSS3'],
     },
     {
       category: 'Frameworks & Libraries',
       skills: ['Next.js (App Router)', 'React 19', 'Node.js', 'Express', 'Tailwind CSS'],
     },
     {
-      category: 'Database & Cloud Storage',
-      skills: ['PostgreSQL', 'Supabase', 'Redis', 'Row Level Security (RLS)'],
+      category: 'Database & Security',
+      skills: ['PostgreSQL', 'Supabase', 'Row Level Security (RLS)'],
     },
     {
       category: 'Infrastructure & DevOps',
@@ -74,13 +74,13 @@ export const resumeData: ResumeData = {
       location: 'Remote',
       period: '2023 — Present',
       description:
-        'Architecting and deploying production-grade SaaS applications, workflow automation engines, and high-throughput alert telemetry services.',
+        'Architecting and deploying production-grade web applications, workflow engines, and backend API services.',
       highlights: [
-        'Engineered BayRight workflow platform using Next.js 16, Supabase, and PostgreSQL with sub-100ms API response times.',
-        'Built BamSignal incident alert engine in Go handling over 10,000 telemetry signals/sec with ring-buffer caching in Redis.',
+        'Engineered BayRight workflow platform using Next.js 16, Supabase, and PostgreSQL with zero-trust RLS policies.',
         'Containerized production deployments using Docker multi-stage builds managed via Coolify on Hetzner VPS.',
+        'Implemented automated CI/CD static verification pipelines enforcing zero ESLint and TypeScript compilation errors.',
       ],
-      techStack: ['TypeScript', 'Next.js', 'Go', 'PostgreSQL', 'Supabase', 'Docker', 'Redis'],
+      techStack: ['TypeScript', 'Next.js', 'PostgreSQL', 'Supabase', 'Docker', 'Tailwind CSS'],
     },
     {
       company: 'Enterprise Software Solutions',
@@ -90,9 +90,9 @@ export const resumeData: ResumeData = {
       description:
         'Designed end-to-end full stack web platforms and led automated software quality assurance workflows.',
       highlights: [
-        'Designed and implemented zero-trust PostgreSQL Row Level Security policies reducing data access risks.',
-        'Created automated CI/CD quality gates using GitHub Actions, Jest, and ESLint enforcing zero-warning code quality standards.',
-        'Architected real-time WebSocket communication modules for collaborative web applications.',
+        'Designed and implemented PostgreSQL Row Level Security policies to enforce tenant data isolation.',
+        'Created automated CI/CD quality gates using GitHub Actions, Jest, and ESLint enforcing code quality standards.',
+        'Built responsive web user interfaces adhering to accessibility best practices.',
       ],
       techStack: ['React', 'TypeScript', 'Node.js', 'PostgreSQL', 'Jest', 'GitHub Actions'],
     },

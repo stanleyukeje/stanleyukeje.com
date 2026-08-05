@@ -3,9 +3,9 @@ import React from 'react';
 export function TrustIndicators() {
   const indicators = [
     { label: 'Engineering Focus', value: 'Full Stack & SQA' },
-    { label: 'Core Language', value: 'TypeScript & Go' },
+    { label: 'Core Language', value: 'TypeScript' },
     { label: 'Cloud Host', value: 'Hetzner + Coolify' },
-    { label: 'Architecture Target', value: 'Sub-100ms Telemetry' },
+    { label: 'Database Engine', value: 'PostgreSQL + Supabase' },
   ];
 
   return (

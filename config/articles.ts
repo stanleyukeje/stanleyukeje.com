@@ -52,29 +52,29 @@ Deploying with Docker multi-stage builds and Next.js \`output: 'standalone'\` en
     featured: true,
   },
   {
-    slug: 'sub-100ms-alert-telemetry-in-go',
-    title: 'Building Sub-100ms Incident Alert Telemetry in Go',
+    slug: 'software-quality-assurance-in-modern-web-apps',
+    title: 'Enforcing Software Quality Assurance in Web Platforms',
     excerpt:
-      'How BamSignal evaluates thousands of incoming log signals per second using Go goroutines and Redis ring buffers.',
+      'How automated linting, strict static analysis, type checking, and Docker multi-stage builds guarantee code quality.',
     content: `
-# Building Sub-100ms Incident Alert Telemetry in Go
+# Enforcing Software Quality Assurance in Web Platforms
 
-High-availability infrastructure monitoring requires sub-second signal evaluation and low garbage collection latency under sudden traffic spikes.
+Software quality assurance is built directly into modern continuous integration pipelines rather than tested manually after deployment.
 
-## Key Architectural Patterns
+## Core QA Gates
 
-1. **Ring Buffer Queuing**: Ingesting incoming webhooks into Redis memory buffers before worker fan-out.
-2. **Sync Pool Buffers**: Reducing memory allocation churn in Go goroutines using \`sync.Pool\`.
-3. **Automated Escalation**: Evaluating notification rules within sub-100ms dispatch targets.
+1. **Automated Static Analysis**: Catching potential linting defects and unused variables with ESLint before commit execution.
+2. **Strict TypeScript Compilation**: Running \`tsc --noEmit\` to verify zero implicit type conversions across all domain interfaces.
+3. **Containerized Build Verification**: Testing Docker multi-stage builds locally to guarantee identical behavior in staging and production environments.
 `,
     publishedAt: '2026-07-20',
-    readTime: '8 min read',
+    readTime: '5 min read',
     author: {
       name: 'Stanley Ukeje',
       role: 'Product Engineer',
       avatar: '/images/profile/stanley.png',
     },
-    tags: ['Go', 'Redis', 'Telemetry', 'Performance'],
+    tags: ['QA', 'TypeScript', 'Docker', 'Testing'],
     featured: true,
   },
 ];

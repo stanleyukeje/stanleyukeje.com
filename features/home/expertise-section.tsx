@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
 
 export function ExpertiseSection() {
   const categories = [
@@ -10,7 +9,7 @@ export function ExpertiseSection() {
     },
     {
       title: 'Backend & Systems',
-      skills: ['Node.js API Routes', 'Go (Golang)', 'PostgreSQL', 'Supabase RLS', 'Redis Ring Buffers', 'WebSocket Gateways'],
+      skills: ['Node.js API Routes', 'PostgreSQL', 'Supabase RLS', 'REST Gateways', 'Server Actions'],
     },
     {
       title: 'DevOps & Quality Assurance',
@@ -22,14 +21,14 @@ export function ExpertiseSection() {
     <section className="py-20 bg-[#111827] border-b border-[#334155]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
         <div className="flex flex-col gap-3 max-w-2xl">
-          <Badge variant="primary" className="w-fit">
+          <span className="inline-flex items-center rounded-full px-3 py-1 text-xs font-mono font-medium border bg-[#2563EB]/10 text-[#38BDF8] border-[#2563EB]/40 w-fit">
             Technical Matrix
-          </Badge>
+          </span>
           <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-            Core Expertise & Technologies
+            Core Expertise & Verified Technologies
           </h2>
           <p className="text-base text-[#CBD5E1] leading-[1.7]">
-            Tools and frameworks utilized to construct high-availability systems.
+            Tools and frameworks utilized to construct high-availability web systems.
           </p>
         </div>
 
@@ -39,9 +38,12 @@ export function ExpertiseSection() {
               <h3 className="text-lg font-bold text-white border-b border-[#334155] pb-3">{cat.title}</h3>
               <div className="flex flex-wrap gap-2">
                 {cat.skills.map((skill) => (
-                  <Badge key={skill} variant="default" className="text-xs">
+                  <span
+                    key={skill}
+                    className="inline-flex items-center rounded-full px-3 py-1 text-xs font-mono font-medium border bg-[#1E293B] text-[#CBD5E1] border-[#334155]"
+                  >
                     {skill}
-                  </Badge>
+                  </span>
                 ))}
               </div>
             </Card>
