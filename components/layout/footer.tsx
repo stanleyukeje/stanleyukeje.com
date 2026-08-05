@@ -11,17 +11,14 @@ export function Footer() {
       <Container size="xl">
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4 lg:grid-cols-5">
           <div className="md:col-span-2 flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-3">
+            <Link href="/" className="flex items-center" aria-label={siteConfig.name}>
               <Image
-                src="/logo.png"
+                src="/logo.webp"
                 alt={siteConfig.name}
-                width={32}
-                height={32}
-                className="object-contain"
+                width={140}
+                height={36}
+                className="h-9 w-auto object-contain"
               />
-              <span className="font-bold text-white tracking-tight">
-                {siteConfig.name}
-              </span>
             </Link>
             <p className="text-sm max-w-sm text-[#9CA3AF]">
               {siteConfig.author.bio}

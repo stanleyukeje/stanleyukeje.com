@@ -34,7 +34,7 @@ export const defaultSEO: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage,
+        url: '/icon.png',
         width: 1200,
         height: 1200,
         alt: siteConfig.name,
@@ -45,7 +45,7 @@ export const defaultSEO: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: ['/icon.png'],
     creator: '@stanleyukeje',
   },
   robots: {

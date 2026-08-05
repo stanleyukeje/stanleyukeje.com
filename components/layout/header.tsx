@@ -10,18 +10,15 @@ export function Header() {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-[#1F2937]/80 bg-[#05070B]/90 backdrop-blur-md transition-all">
       <Container size="xl" className="flex h-14 items-center justify-between">
-        <Link href="/" className="flex items-center gap-2.5 group">
+        <Link href="/" className="flex items-center group" aria-label={siteConfig.name}>
           <Image
-            src="/logo.png"
+            src="/logo.webp"
             alt={siteConfig.name}
-            width={30}
-            height={30}
-            className="object-contain transition-transform group-hover:scale-105"
+            width={140}
+            height={36}
+            className="h-9 w-auto object-contain transition-transform group-hover:scale-105"
             priority
           />
-          <span className="font-semibold text-base text-white tracking-tight">
-            {siteConfig.name}
-          </span>
         </Link>
         <MainNav />
         <MobileNav />

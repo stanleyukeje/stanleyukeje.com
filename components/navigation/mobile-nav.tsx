@@ -22,16 +22,15 @@ export function MobileNav() {
       </button>
 
       {isOpen && (
-        <div className="fixed inset-x-0 top-16 bottom-0 z-50 bg-[#05070B]/95 backdrop-blur-md px-6 py-8 border-t border-[#1F2937] flex flex-col gap-6">
-          <div className="flex items-center gap-3 pb-4 border-b border-[#1F2937]">
+        <div className="fixed inset-x-0 top-14 bottom-0 z-50 bg-[#05070B]/95 backdrop-blur-md px-6 py-8 border-t border-[#1F2937] flex flex-col gap-6">
+          <div className="flex items-center pb-4 border-b border-[#1F2937]">
             <Image
-              src="/logo.png"
+              src="/logo.webp"
               alt={siteConfig.name}
-              width={32}
+              width={130}
               height={32}
-              className="object-contain"
+              className="h-8 w-auto object-contain"
             />
-            <span className="font-semibold text-white">{siteConfig.name}</span>
           </div>
           <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
             {mainNavItems.map((item) => (
