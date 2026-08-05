@@ -30,7 +30,7 @@ export const projectsConfig: Project[] = [
     },
     github: 'https://github.com/stanleyukeje/bayright',
     demo: 'https://bayright.com',
-    coverImage: '/images/projects/bayright.png',
+    coverImage: '/images/projects/bayright/desktop-home.webp',
     seo: {
       title: 'BayRight Digital Payments Case Study',
       description:
@@ -63,8 +63,14 @@ export const projectsConfig: Project[] = [
     lessons: [
       'Using server-side data fetching ensures transaction records load quickly without exposing sensitive API keys.',
     ],
-    screenshots: ['/images/projects/bayright.png'],
-    gallery: ['/images/projects/bayright.png'],
+    screenshots: [
+      '/images/projects/bayright/desktop-home.webp',
+      '/images/projects/bayright/mobile-home.webp',
+    ],
+    gallery: [
+      '/images/projects/bayright/desktop-home.webp',
+      '/images/projects/bayright/mobile-home.webp',
+    ],
     integrations: ['Supabase', 'Resend', 'Cloudflare'],
     futureImprovements: [
       'Planned Improvement: Add automated recurring bill payment schedules.',
@@ -98,7 +104,7 @@ export const projectsConfig: Project[] = [
     },
     github: 'https://github.com/stanleyukeje/yike',
     demo: 'https://yike.ng',
-    coverImage: '/images/projects/yike.png',
+    coverImage: '/images/projects/yike/desktop-home.webp',
     seo: {
       title: 'Yike Real Estate Marketplace Case Study',
       description:
@@ -131,8 +137,14 @@ export const projectsConfig: Project[] = [
     lessons: [
       'Structured database indexing drastically speeds up multi-parameter listing searches.',
     ],
-    screenshots: ['/images/projects/yike.png'],
-    gallery: ['/images/projects/yike.png'],
+    screenshots: [
+      '/images/projects/yike/desktop-home.webp',
+      '/images/projects/yike/mobile-home.webp',
+    ],
+    gallery: [
+      '/images/projects/yike/desktop-home.webp',
+      '/images/projects/yike/mobile-home.webp',
+    ],
     integrations: ['Supabase', 'Cloudflare'],
     futureImprovements: [
       'Planned Improvement: Add interactive map location search.',
@@ -165,7 +177,7 @@ export const projectsConfig: Project[] = [
     },
     github: 'https://github.com/stanleyukeje/bamsignal',
     demo: 'https://bamsignal.com',
-    coverImage: '/images/projects/bamsignal.png',
+    coverImage: '/images/projects/bamsignal/desktop-home.webp',
     seo: {
       title: 'BamSignal Social Discovery Platform Case Study',
       description:
@@ -198,8 +210,14 @@ export const projectsConfig: Project[] = [
     lessons: [
       'Offloading media uploads to object storage keeps database size manageable and page loads fast.',
     ],
-    screenshots: ['/images/projects/bamsignal.png'],
-    gallery: ['/images/projects/bamsignal.png'],
+    screenshots: [
+      '/images/projects/bamsignal/desktop-home.webp',
+      '/images/projects/bamsignal/mobile-home.webp',
+    ],
+    gallery: [
+      '/images/projects/bamsignal/desktop-home.webp',
+      '/images/projects/bamsignal/mobile-home.webp',
+    ],
     integrations: ['Supabase', 'Cloudflare'],
     futureImprovements: [
       'Planned Improvement: Add push notifications for new message alerts.',
@@ -231,7 +249,7 @@ export const projectsConfig: Project[] = [
     },
     github: 'https://github.com/stanleyukeje/rentovix',
     demo: 'https://rentovix.com',
-    coverImage: '/images/projects/rentovix.png',
+    coverImage: '/images/projects/rentovix/desktop-home.webp',
     seo: {
       title: 'Rentovix Property Rental Platform Case Study',
       description:
@@ -263,8 +281,14 @@ export const projectsConfig: Project[] = [
     lessons: [
       'Proper relational database modeling prevents duplicate tenant records and simplifies query logic.',
     ],
-    screenshots: ['/images/projects/rentovix.png'],
-    gallery: ['/images/projects/rentovix.png'],
+    screenshots: [
+      '/images/projects/rentovix/desktop-home.webp',
+      '/images/projects/rentovix/mobile-home.webp',
+    ],
+    gallery: [
+      '/images/projects/rentovix/desktop-home.webp',
+      '/images/projects/rentovix/mobile-home.webp',
+    ],
     futureImprovements: [
       'Planned Improvement: Add automated digital lease signing features.',
     ],
@@ -295,7 +319,7 @@ export const projectsConfig: Project[] = [
     },
     github: 'https://github.com/stanleyukeje/logicvault',
     demo: 'https://logicvault.org',
-    coverImage: '/images/projects/logicvault.png',
+    coverImage: '/images/projects/logicvault/desktop-home.webp',
     seo: {
       title: 'LogicVault Business Operations Platform Case Study',
       description:
@@ -326,8 +350,14 @@ export const projectsConfig: Project[] = [
     lessons: [
       'Realtime database triggers provide immediate feedback to users working on shared team tasks.',
     ],
-    screenshots: ['/images/projects/logicvault.png'],
-    gallery: ['/images/projects/logicvault.png'],
+    screenshots: [
+      '/images/projects/logicvault/desktop-home.webp',
+      '/images/projects/logicvault/mobile-home.webp',
+    ],
+    gallery: [
+      '/images/projects/logicvault/desktop-home.webp',
+      '/images/projects/logicvault/mobile-home.webp',
+    ],
     futureImprovements: [
       'Planned Improvement: Add automated email task reminders.',
     ],

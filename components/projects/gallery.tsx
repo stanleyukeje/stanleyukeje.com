@@ -11,26 +11,51 @@ export function Gallery({ project }: GalleryProps) {
   const images = project.gallery || project.screenshots;
   if (!images || images.length === 0) return null;
 
-  return (
-    <div className="flex flex-col gap-6 py-12 border-b border-[#1F2937]/80">
-      <Heading as="h2">Project Screenshots & Media</Heading>
+  const desktopImage = images.find((src) => src.includes('desktop'));
+  const mobileImage = images.find((src) => src.includes('mobile'));
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {images.map((src, index) => (
-          <div
-            key={index}
-            className="relative w-full aspect-video rounded-xl overflow-hidden border border-[#1F2937] bg-[#0E131B]"
-          >
-            <Image
-              src={src}
-              alt={`${project.title} screenshot ${index + 1}`}
-              fill
-              sizes="(max-width: 768px) 100vw, 50vw"
-              loading="lazy"
-              className="object-cover"
-            />
+  return (
+    <div className="flex flex-col gap-8 py-12 border-b border-[#334155]">
+      <Heading as="h2" className="text-[#38BDF8]">Production Interface Screenshots</Heading>
+
+      <div className="flex flex-col gap-8">
+        {/* Desktop Screenshot */}
+        {desktopImage && (
+          <div className="flex flex-col gap-2">
+            <span className="text-xs font-semibold text-[#CBD5E1] uppercase tracking-wider font-mono">
+              Desktop Interface
+            </span>
+            <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-[#334155] bg-[#111827] shadow-xl">
+              <Image
+                src={desktopImage}
+                alt={`${project.title} desktop dashboard`}
+                fill
+                sizes="100vw"
+                loading="lazy"
+                className="object-cover"
+              />
+            </div>
           </div>
-        ))}
+        )}
+
+        {/* Mobile Screenshot */}
+        {mobileImage && (
+          <div className="flex flex-col gap-2 max-w-sm">
+            <span className="text-xs font-semibold text-[#CBD5E1] uppercase tracking-wider font-mono">
+              Mobile Responsive View
+            </span>
+            <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden border border-[#334155] bg-[#111827] shadow-xl">
+              <Image
+                src={mobileImage}
+                alt={`${project.title} mobile homepage`}
+                fill
+                sizes="(max-width: 640px) 100vw, 384px"
+                loading="lazy"
+                className="object-cover"
+              />
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );
