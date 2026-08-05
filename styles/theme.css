@@ -1,0 +1,24 @@
+/* Global Theme CSS Tokens & Variables */
+:root {
+  --bg-background: #05070b;
+  --bg-surface: #0e131b;
+  --color-primary: #2563eb;
+  --color-text: #ffffff;
+  --color-muted: #9ca3af;
+  --color-border: #1f2937;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --accent-glow: rgba(37, 99, 235, 0.12);
+}
+
+body {
+  background-color: var(--bg-background);
+  color: var(--color-text);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-geist), sans-serif;
+}
