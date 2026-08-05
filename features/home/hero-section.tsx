@@ -10,30 +10,30 @@ export function HeroSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-10 items-center">
           <div className="lg:col-span-7 flex flex-col items-start text-left gap-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-[#2563EB]/40 bg-[#111827] text-xs font-mono text-[#38BDF8]">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-[#2563EB]/40 bg-[#111827] text-xs font-mono text-[#38BDF8]">
               <Terminal className="h-3.5 w-3.5 text-[#2563EB]" />
               <span>Product Engineer & Systems Architect</span>
             </div>
 
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
-              Building Production Software with Quality & Precision.
+              Building Production Web Systems with Quality & Precision.
             </h1>
 
             <p className="text-base sm:text-lg text-[#CBD5E1] max-w-2xl leading-[1.7]">
-              Specializing in resilient systems architecture, full-stack development, software quality assurance, and high-throughput telemetry services.
+              I am Stanley Ukeje, a Product Engineer specializing in full-stack architecture, software quality assurance, and zero-trust Supabase applications.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/projects"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#2563EB] text-white font-bold text-sm hover:bg-[#3B82F6] transition-colors shadow-md shadow-blue-900/30"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#2563EB] text-white font-bold text-sm hover:bg-[#3B82F6] transition-colors shadow-md shadow-blue-900/30"
               >
-                <span>View Engineering Projects</span>
+                <span>Explore Engineering Projects</span>
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-[#334155] bg-[#111827] text-white font-semibold text-sm hover:bg-[#1E293B] hover:border-[#475569] transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg border border-[#334155] bg-[#111827] text-white font-semibold text-sm hover:bg-[#1E293B] hover:border-[#475569] transition-colors"
               >
                 <span>Get In Touch</span>
               </Link>
