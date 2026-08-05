@@ -1,30 +1,26 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { clsx } from 'clsx';
 
 export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
-  variant?: 'default' | 'primary' | 'success' | 'warning' | 'error';
+  variant?: 'primary' | 'success' | 'warning' | 'error' | 'default';
   children: React.ReactNode;
+  className?: string;
 }
 
-const variantClasses = {
-  default: 'bg-[#1F2937] text-[#9CA3AF] border border-[#1F2937]',
-  primary: 'bg-[#2563EB]/10 text-[#2563EB] border border-[#2563EB]/20',
-  success: 'bg-[#22C55E]/10 text-[#22C55E] border border-[#22C55E]/20',
-  warning: 'bg-[#F59E0B]/10 text-[#F59E0B] border border-[#F59E0B]/20',
-  error: 'bg-[#EF4444]/10 text-[#EF4444] border border-[#EF4444]/20',
-};
+export function Badge({ variant = 'default', children, className, ...props }: BadgeProps) {
+  const variantStyles = {
+    primary: 'bg-[#2563EB]/10 text-[#38BDF8] border-[#2563EB]/40',
+    success: 'bg-[#22C55E]/10 text-[#4ADE80] border-[#22C55E]/30',
+    warning: 'bg-[#F59E0B]/10 text-[#FBBF24] border-[#F59E0B]/30',
+    error: 'bg-[#EF4444]/10 text-[#F87171] border-[#EF4444]/30',
+    default: 'bg-[#1E293B] text-[#CBD5E1] border-[#334155]',
+  };
 
-export function Badge({
-  variant = 'default',
-  className,
-  children,
-  ...props
-}: BadgeProps) {
   return (
     <span
-      className={cn(
-        'inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium',
-        variantClasses[variant],
+      className={clsx(
+        'inline-flex items-center rounded-full px-3 py-1 text-xs font-mono font-medium border transition-colors',
+        variantStyles[variant],
         className
       )}
       {...props}

@@ -1,42 +1,39 @@
 import React from 'react';
-import { cn } from '@/lib/utils';
+import { clsx } from 'clsx';
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'ghost';
   size?: 'sm' | 'md' | 'lg';
   children: React.ReactNode;
+  className?: string;
 }
-
-const variantClasses = {
-  primary:
-    'bg-[#2563EB] text-white hover:bg-[#1d4ed8] focus:ring-2 focus:ring-[#2563EB] focus:ring-offset-2 focus:ring-offset-[#05070B]',
-  secondary:
-    'bg-[#0E131B] text-white hover:bg-[#1F2937] border border-[#1F2937]',
-  outline:
-    'border border-[#1F2937] text-white hover:bg-[#0E131B] hover:border-[#9CA3AF]',
-  ghost: 'text-[#9CA3AF] hover:text-white hover:bg-[#0E131B]',
-};
-
-const sizeClasses = {
-  sm: 'px-3 py-1.5 text-xs rounded-md',
-  md: 'px-4 py-2 text-sm rounded-lg',
-  lg: 'px-6 py-3 text-base rounded-xl',
-};
 
 export function Button({
   variant = 'primary',
   size = 'md',
-  className,
   children,
+  className,
   ...props
 }: ButtonProps) {
+  const variantStyles = {
+    primary: 'bg-[#2563EB] text-white hover:bg-[#3B82F6] shadow-md shadow-blue-900/30 border border-transparent',
+    secondary: 'bg-[#1E293B] text-white hover:bg-[#334155] border border-[#334155]',
+    outline: 'bg-[#111827] text-white border border-[#334155] hover:bg-[#1E293B] hover:border-[#475569]',
+    ghost: 'bg-transparent text-[#CBD5E1] hover:text-white hover:bg-[#1E293B]/50 border border-transparent',
+  };
+
+  const sizeStyles = {
+    sm: 'px-3 py-1.5 text-xs',
+    md: 'px-5 py-2.5 text-sm font-semibold',
+    lg: 'px-6 py-3.5 text-base font-bold',
+  };
+
   return (
     <button
-      className={cn(
-        'inline-flex items-center justify-center font-medium transition-all duration-200 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed',
-        variantClasses[variant],
-        sizeClasses[size],
+      className={clsx(
+        'inline-flex items-center justify-center rounded-lg transition-all duration-150 focus:outline-none focus:ring-2 focus:ring-[#2563EB] disabled:opacity-50 disabled:pointer-events-none',
+        variantStyles[variant],
+        sizeStyles[size],
         className
       )}
       {...props}

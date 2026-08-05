@@ -11,8 +11,8 @@ export function Card({ children, className, hoverEffect = false, ...props }: Car
   return (
     <div
       className={clsx(
-        'rounded-xl border p-6 text-[#E5E7EB] transition-all duration-200 border-[#334155] bg-[#111827] shadow-md shadow-black/20',
-        hoverEffect && 'hover:border-[#2563EB]/60 hover:shadow-lg hover:shadow-black/40',
+        'rounded-xl border p-6 md:p-8 text-[#E5E7EB] transition-all duration-200 border-[#334155] bg-[#111827] shadow-md shadow-black/20',
+        hoverEffect && 'hover:border-[#2563EB]/60 hover:shadow-xl hover:shadow-black/40 hover:-translate-y-0.5',
         className
       )}
       {...props}
