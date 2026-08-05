@@ -1,8 +1,27 @@
 @import "tailwindcss";
-@import "../styles/theme.css";
 
-@layer base {
-  * {
-    border-color: var(--color-border);
-  }
+:root {
+  --background: #0B1220;
+  --surface: #111827;
+  --secondary-surface: #1E293B;
+  --primary: #2563EB;
+  --primary-hover: #3B82F6;
+  --heading: #FFFFFF;
+  --body-text: #E5E7EB;
+  --muted-text: #CBD5E1;
+  --border: #334155;
+  --subtle-divider: rgba(255, 255, 255, 0.06);
+  --success: #22C55E;
+  --warning: #F59E0B;
+  --error: #EF4444;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--body-text);
+  line-height: 1.7;
+}
+
+p {
+  line-height: 1.7;
 }

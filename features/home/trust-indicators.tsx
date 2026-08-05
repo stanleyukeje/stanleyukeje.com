@@ -1,28 +1,25 @@
 import React from 'react';
-import { Section } from '@/components/layout/section';
-import { CheckCircle } from 'lucide-react';
-
-const trustItems = [
-  'Production Applications',
-  'Full Stack Engineering',
-  'Quality Assurance',
-  'Modern Web Stack',
-  'Continuous Learning',
-];
 
 export function TrustIndicators() {
+  const indicators = [
+    { label: 'Engineering Focus', value: 'Full Stack & SQA' },
+    { label: 'Core Language', value: 'TypeScript & Go' },
+    { label: 'Cloud Host', value: 'Hetzner + Coolify' },
+    { label: 'Architecture Target', value: 'Sub-100ms Telemetry' },
+  ];
+
   return (
-    <div className="border-y border-[#1F2937] bg-[#0E131B]/50 py-6">
-      <Section containerSize="xl" className="py-0">
-        <div className="flex flex-wrap items-center justify-between gap-6">
-          {trustItems.map((item) => (
-            <div key={item} className="flex items-center gap-2.5 text-sm font-medium text-[#9CA3AF]">
-              <CheckCircle className="h-4 w-4 text-[#22C55E]" />
-              <span>{item}</span>
+    <section className="py-12 bg-[#111827] border-b border-[#334155]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+          {indicators.map((ind) => (
+            <div key={ind.label} className="flex flex-col gap-1 p-4 rounded-xl bg-[#1E293B]/40 border border-[#334155]">
+              <span className="text-xs uppercase tracking-wider text-[#CBD5E1] font-semibold">{ind.label}</span>
+              <span className="text-base font-bold text-white">{ind.value}</span>
             </div>
           ))}
         </div>
-      </Section>
-    </div>
+      </div>
+    </section>
   );
 }

@@ -7,17 +7,17 @@ import { Calendar, Clock, ArrowRight } from 'lucide-react';
 
 export function BlogSection() {
   return (
-    <section className="py-16 bg-[#05070B] border-t border-[#1F2937]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-10">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#1F2937] pb-6">
+    <section className="py-20 bg-[#111827] border-b border-[#334155]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col gap-12">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-[#334155] pb-6">
           <div className="flex flex-col gap-2">
             <Badge variant="primary" className="w-fit">
               Technical Writing
             </Badge>
-            <h2 className="text-2xl font-bold tracking-tight text-white sm:text-3xl">
+            <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
               Engineering Deep Dives & Articles
             </h2>
-            <p className="text-sm text-[#9CA3AF]">
+            <p className="text-base text-[#CBD5E1] leading-[1.7]">
               Architectural analyses, performance optimizations, and systems design principles.
             </p>
           </div>
@@ -34,7 +34,7 @@ export function BlogSection() {
           {articlesConfig.map((article) => (
             <Card key={article.slug} hoverEffect className="flex flex-col justify-between gap-6 h-full">
               <div className="flex flex-col gap-3">
-                <div className="flex items-center justify-between text-xs text-[#9CA3AF]">
+                <div className="flex items-center justify-between text-xs text-[#CBD5E1]">
                   <div className="flex items-center gap-1.5">
                     <Calendar className="h-3.5 w-3.5 text-[#2563EB]" />
                     <span>{article.publishedAt}</span>
@@ -49,12 +49,12 @@ export function BlogSection() {
                     {article.title}
                   </h3>
                 </Link>
-                <p className="text-sm text-[#9CA3AF] line-clamp-2 leading-relaxed">
+                <p className="text-sm text-[#CBD5E1] line-clamp-2 leading-[1.7]">
                   {article.excerpt}
                 </p>
               </div>
 
-              <div className="flex items-center justify-between pt-3 border-t border-[#1F2937] text-xs">
+              <div className="flex items-center justify-between pt-3 border-t border-[#334155] text-xs">
                 <div className="flex gap-1.5">
                   {article.tags.map((tag) => (
                     <Badge key={tag} variant="default" className="text-xs">
