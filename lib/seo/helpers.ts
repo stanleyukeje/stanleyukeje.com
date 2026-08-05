@@ -1,3 +1,5 @@
+import { SOCIAL_URLS } from '@/config/social';
+
 /**
  * Builds standard Person JSON-LD schema for Stanley Ukeje
  */
@@ -14,10 +16,10 @@ export function buildPersonJsonLd() {
       name: 'StanleyUkeje Engineering',
     },
     sameAs: [
-      'https://github.com/stanleyukeje',
-      'https://linkedin.com/in/stanleyukeje',
-      'https://x.com/StanleyUkeje_',
-      'https://www.youtube.com/@stanley_ukeje',
+      SOCIAL_URLS.github,
+      SOCIAL_URLS.linkedin,
+      SOCIAL_URLS.twitter,
+      SOCIAL_URLS.youtube,
     ],
   };
 }

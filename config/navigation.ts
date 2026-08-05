@@ -1,4 +1,5 @@
 import { NavigationItem, FooterNavigationGroup } from '@/types';
+import { SOCIAL_URLS } from './social';
 
 export const mainNavItems: NavigationItem[] = [
   { label: 'About', href: '/about' },
@@ -22,10 +23,10 @@ export const footerNavItems: FooterNavigationGroup[] = [
     title: 'Connect',
     items: [
       { label: 'Contact', href: '/contact' },
-      { label: 'GitHub', href: 'https://github.com/stanleyukeje', isExternal: true },
-      { label: 'LinkedIn', href: 'https://linkedin.com/in/stanleyukeje', isExternal: true },
-      { label: 'X (Twitter)', href: 'https://x.com/StanleyUkeje_', isExternal: true },
-      { label: 'YouTube', href: 'https://www.youtube.com/@stanley_ukeje', isExternal: true },
+      { label: 'GitHub', href: SOCIAL_URLS.github, isExternal: true },
+      { label: 'LinkedIn', href: SOCIAL_URLS.linkedin, isExternal: true },
+      { label: 'X (Twitter)', href: SOCIAL_URLS.twitter, isExternal: true },
+      { label: 'YouTube', href: SOCIAL_URLS.youtube, isExternal: true },
     ],
   },
 ];

@@ -1,22 +1,24 @@
+import { SOCIAL_URLS } from './social';
+
 export const contactConfig = {
   email: 'stan@stanleyukeje.com',
   location: 'Abuja, Nigeria (Remote, Worldwide)',
   socials: [
     {
       name: 'GitHub',
-      url: 'https://github.com/stanleyukeje',
+      url: SOCIAL_URLS.github,
     },
     {
       name: 'LinkedIn',
-      url: 'https://linkedin.com/in/stanleyukeje',
+      url: SOCIAL_URLS.linkedin,
     },
     {
       name: 'X (Twitter)',
-      url: 'https://x.com/StanleyUkeje_',
+      url: SOCIAL_URLS.twitter,
     },
     {
       name: 'YouTube',
-      url: 'https://www.youtube.com/@stanley_ukeje',
+      url: SOCIAL_URLS.youtube,
     },
   ],
 };

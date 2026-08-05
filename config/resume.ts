@@ -1,3 +1,5 @@
+import { SOCIAL_URLS } from '@/config/social';
+
 export interface ResumeExperience {
   company: string;
   role: string;
@@ -40,8 +42,8 @@ export const resumeData: ResumeData = {
     'Product Engineer with expertise in building web applications, API services, and cloud infrastructure. Strong focus on software quality assurance, resilient architecture, zero-trust security, and maintainable TypeScript codebases.',
   contact: {
     email: 'stan@stanleyukeje.com',
-    github: 'https://github.com/stanleyukeje',
-    linkedin: 'https://linkedin.com/in/stanleyukeje',
+    github: SOCIAL_URLS.github,
+    linkedin: SOCIAL_URLS.linkedin,
     location: 'Abuja, Nigeria (Remote, Worldwide)',
     website: 'https://stanleyukeje.com',
   },

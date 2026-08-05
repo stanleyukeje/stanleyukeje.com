@@ -1,4 +1,7 @@
-export const siteConfig = {
+import { SiteMetadata } from '@/types';
+import { SOCIAL_URLS } from './social';
+
+export const siteConfig: SiteMetadata = {
   name: 'Stanley Ukeje',
   title: 'Stanley Ukeje — Product Engineer & Systems Architect',
   description:
@@ -14,9 +17,9 @@ export const siteConfig = {
 };
 
 export const siteLinks = {
-  github: 'https://github.com/stanleyukeje',
-  linkedin: 'https://linkedin.com/in/stanleyukeje',
-  twitter: 'https://x.com/StanleyUkeje_',
-  youtube: 'https://www.youtube.com/@stanley_ukeje',
-  email: 'mailto:stan@stanleyukeje.com',
+  github: SOCIAL_URLS.github,
+  linkedin: SOCIAL_URLS.linkedin,
+  twitter: SOCIAL_URLS.twitter,
+  youtube: SOCIAL_URLS.youtube,
+  email: SOCIAL_URLS.email,
 };
