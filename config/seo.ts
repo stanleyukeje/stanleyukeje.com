@@ -20,9 +20,13 @@ export const defaultSEO: Metadata = {
     'System Architecture',
   ],
   icons: {
-    icon: '/icon.webp',
-    shortcut: '/icon.webp',
-    apple: '/icon.webp',
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.png', type: 'image/png', sizes: '32x32' },
+      { url: '/icon.webp', type: 'image/webp', sizes: '512x512' },
+    ],
+    shortcut: '/favicon.png',
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.webmanifest',
   openGraph: {
@@ -34,9 +38,17 @@ export const defaultSEO: Metadata = {
     siteName: siteConfig.name,
     images: [
       {
-        url: '/icon.webp',
+        url: `${siteConfig.url}/og-image.png`,
+        width: 1200,
+        height: 630,
+        type: 'image/png',
+        alt: siteConfig.name,
+      },
+      {
+        url: `${siteConfig.url}/icon.webp`,
         width: 512,
         height: 512,
+        type: 'image/webp',
         alt: siteConfig.name,
       },
     ],
@@ -45,7 +57,7 @@ export const defaultSEO: Metadata = {
     card: 'summary_large_image',
     title: siteConfig.title,
     description: siteConfig.description,
-    images: ['/icon.webp'],
+    images: [`${siteConfig.url}/og-image.png`],
     creator: '@stanleyukeje',
   },
   robots: {
