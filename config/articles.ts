@@ -49,7 +49,7 @@ Choosing Next.js, React, TypeScript, and Supabase provided a unified full-stack 
       avatar: '/images/profile/stanley.png',
     },
     tags: ['Next.js', 'Supabase', 'TypeScript', 'PostgreSQL'],
-    coverImage: '/images/projects/bayright/desktop-home.webp',
+    coverImage: '/images/blog/2026-08-01.webp',
     featured: true,
   },
   {
@@ -88,7 +88,7 @@ Next.js standalone output is packaged into a multi-stage Dockerfile and deployed
       avatar: '/images/profile/stanley.png',
     },
     tags: ['Workflow', 'Docker', 'Coolify', 'DevOps'],
-    coverImage: '/images/projects/bamsignal/desktop-home.webp',
+    coverImage: '/images/blog/2026-07-25.webp',
     featured: true,
   },
   {
@@ -125,7 +125,7 @@ Building applications for different industries highlights specific technical cha
       avatar: '/images/profile/stanley.png',
     },
     tags: ['Fintech', 'Real Estate', 'SaaS', 'Lessons Learned'],
-    coverImage: '/images/projects/yike/desktop-home.webp',
+    coverImage: '/images/blog/2026-07-15.webp',
     featured: true,
   },
 ];
