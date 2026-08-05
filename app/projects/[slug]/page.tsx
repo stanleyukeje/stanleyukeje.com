@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Metadata } from 'next';
 import { projectsConfig } from '@/config/projects';
 import { ProjectHero } from '@/components/projects/project-hero';
+import { Gallery } from '@/components/projects/gallery';
 import { ArchitectureSection } from '@/components/projects/architecture-section';
 import { LessonSection } from '@/components/projects/lesson-section';
 
@@ -51,6 +52,8 @@ export default async function CaseStudyPage({ params }: CaseStudyPageProps) {
         <ProjectHero project={project} />
 
         <div className="flex flex-col gap-10">
+          <Gallery project={project} />
+
           <section className="flex flex-col gap-3">
             <h2 className="text-xl font-bold text-white border-b border-[#334155] pb-2">
               1. Executive Summary
