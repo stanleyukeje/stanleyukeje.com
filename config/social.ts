@@ -6,6 +6,7 @@ export const SOCIAL_URLS = {
   twitter: 'https://x.com/StanleyUkeje_',
   youtube: 'https://www.youtube.com/@stanley_ukeje',
   email: 'mailto:stan@stanleyukeje.com',
+  whatsapp: 'https://wa.me/971503900735',
 } as const;
 
 export const socialLinks: SocialLink[] = [

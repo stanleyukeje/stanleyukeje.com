@@ -32,6 +32,7 @@ export interface CanonicalResumeData {
   contact: {
     location: string;
     phone: string;
+    whatsappUrl: string;
     email: string;
     website: string;
     github: string;
@@ -61,6 +62,7 @@ export const canonicalResumeData: CanonicalResumeData = {
   contact: {
     location: 'Sharjah, United Arab Emirates',
     phone: '+971 50 390 0735',
+    whatsappUrl: SOCIAL_URLS.whatsapp,
     email: 'stan@stanleyukeje.com',
     website: 'https://stanleyukeje.com',
     github: SOCIAL_URLS.github,

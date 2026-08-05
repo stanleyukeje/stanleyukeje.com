@@ -60,7 +60,12 @@ export default function ResumePage() {
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-4 w-4 text-[#2563EB]" />
-            <a href={`tel:${resume.contact.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
+            <a
+              href={resume.contact.whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
               {resume.contact.phone}
             </a>
           </div>

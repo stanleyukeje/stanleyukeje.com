@@ -10,7 +10,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { Mail, MapPin, Phone, Send, CheckCircle2, ExternalLink } from 'lucide-react';
-import { socialLinks } from '@/config/social';
+import { socialLinks, SOCIAL_URLS } from '@/config/social';
 import { canonicalResumeData } from '@/config/resume';
 
 function getRandomNum() {
@@ -119,7 +119,12 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-[#2563EB]" />
-                <a href={`tel:${canonicalResumeData.contact.phone.replace(/\s+/g, '')}`} className="hover:text-white transition-colors">
+                <a
+                  href={SOCIAL_URLS.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-white transition-colors"
+                >
                   {canonicalResumeData.contact.phone}
                 </a>
               </div>
