@@ -12,6 +12,7 @@ import { Button } from '@/components/ui/button';
 import { Mail, MapPin, Phone, Send, CheckCircle2, ExternalLink } from 'lucide-react';
 import { socialLinks, SOCIAL_URLS } from '@/config/social';
 import { canonicalResumeData } from '@/config/resume';
+import { contactConfig } from '@/config/contact';
 
 function getRandomNum() {
   return Math.floor(Math.random() * 9) + 1;
@@ -130,7 +131,7 @@ export default function ContactPage() {
               </div>
               <div className="flex items-center gap-3">
                 <MapPin className="h-5 w-5 text-[#2563EB]" />
-                <span>Sharjah, UAE (Remote, Worldwide)</span>
+                <span>{contactConfig.location}</span>
               </div>
             </div>
 
