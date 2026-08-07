@@ -98,8 +98,8 @@ export default function AboutPage() {
           </p>
           <div className="flex items-center gap-4">
             <a
-              href="/resume/Stanley_Ukeje_CV.pdf"
-              download="Stanley_Ukeje_CV.pdf"
+              href="/resume/Stanley_Ukeje_Software_Engineer_CV.pdf"
+              download="Stanley_Ukeje_Software_Engineer_CV.pdf"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#2563EB] text-white font-bold text-sm hover:bg-[#3B82F6] transition-colors"
             >
               <span>Download CV</span>

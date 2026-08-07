@@ -58,9 +58,9 @@ export interface CanonicalResumeData {
 export const canonicalResumeData: CanonicalResumeData = {
   name: 'STANLEY UKEJE',
   title: 'FULL STACK SOFTWARE ENGINEER | PRODUCT ENGINEER',
-  pdfPath: '/resume/Stanley_Ukeje_CV.pdf',
+  pdfPath: '/resume/Stanley_Ukeje_Software_Engineer_CV.pdf',
   contact: {
-    location: 'Sharjah, United Arab Emirates',
+    location: 'Sharjah, UAE',
     phone: '+971 50 390 0735',
     whatsappUrl: SOCIAL_URLS.whatsapp,
     email: 'stan@stanleyukeje.com',

@@ -43,7 +43,7 @@ export default function ResumePage() {
           <div className="flex items-center gap-3">
             <a
               href={resume.pdfPath}
-              download="Stanley_Ukeje_CV.pdf"
+              download="Stanley_Ukeje_Software_Engineer_CV.pdf"
               className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#2563EB] text-white font-bold text-sm hover:bg-[#3B82F6] transition-colors shadow-md shadow-blue-900/30"
             >
               <Download className="h-4 w-4" />
@@ -250,7 +250,7 @@ export default function ResumePage() {
         <div className="flex justify-center pt-6 border-t border-[#334155]">
           <a
             href={resume.pdfPath}
-            download="Stanley_Ukeje_CV.pdf"
+            download="Stanley_Ukeje_Software_Engineer_CV.pdf"
             className="inline-flex items-center gap-2 px-6 py-3.5 rounded-lg bg-[#2563EB] text-white font-bold text-sm hover:bg-[#3B82F6] transition-colors shadow-md shadow-blue-900/30"
           >
             <Download className="h-4 w-4" />

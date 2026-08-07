@@ -2,7 +2,7 @@ import { SOCIAL_URLS } from './social';
 
 export const contactConfig = {
   email: 'stan@stanleyukeje.com',
-  location: 'Sharjah, United Arab Emirates (Remote, Worldwide)',
+  location: 'Sharjah, UAE (Remote, Worldwide)',
   socials: [
     {
       name: 'GitHub',
